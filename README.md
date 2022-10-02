@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # fe_latihaku
 
 A new Flutter project.
@@ -14,3 +15,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# FE_LatihAku
+>>>>>>> af0190a77409639a1d69cfd11d9a113dee7ea294
