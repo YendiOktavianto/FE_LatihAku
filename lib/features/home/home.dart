@@ -16,7 +16,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    var size = MediaQuery.of(context)
+        .size; //this gonna give us total height and with of our device
     return Stack(
       children: <Widget>[
         Container(
@@ -36,16 +37,27 @@ class _HomeState extends State<Home> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 50.0, bottom: 50.0),
-                  child: Text(
-                    "Good Mornign \nShishir",
-                    style: Theme.of(context)
-                        .textTheme
-                        .displayLarge
-                        .copyWith(fontWeight: FontWeight.w900),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 52,
+                    width: 52,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFF2BEA1),
+                      shape: BoxShape.circle,
+                    ),
+                    // child: SvgPicture.asset("assets/icons/menu.svg"),
                   ),
                 ),
+                Text(
+                  "Good Mornign \nShishir",
+                  style: Theme.of(context)
+                      .textTheme
+                      .displaySmall
+                      .copyWith(fontWeight: FontWeight.w900),
+                ),
+                // SearchBar(),
                 Expanded(
                   child: GridView.count(
                     crossAxisCount: 2,
@@ -54,26 +66,29 @@ class _HomeState extends State<Home> {
                     mainAxisSpacing: 20,
                     children: <Widget>[
                       CategoryCard(
-                        title: "Find Coach",
+                        title: "Diet Recommendation",
                         svgSrc: "assets/Hamburger.svg",
-                        press: () {
-                          changeScreen(context, Coach());
-                        },
-                      ),
-                      CategoryCard(
-                        title: "Shooping",
-                        svgSrc: "assets/Excrecises.svg",
-                        press: () {
-                          changeScreen(context, Booking());
-                        },
-                      ),
-                      CategoryCard(
-                        title: "Coaching",
-                        svgSrc: "assets/Meditation.svg",
                         press: () {},
                       ),
                       CategoryCard(
-                        title: "Booking Place",
+                        title: "Kegel Exercises",
+                        svgSrc: "assets/Excrecises.svg",
+                        press: () {},
+                      ),
+                      CategoryCard(
+                        title: "Meditation",
+                        svgSrc: "assets/Meditation.svg",
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              // return DetailsScreen();
+                            }),
+                          );
+                        },
+                      ),
+                      CategoryCard(
+                        title: "Yoga",
                         svgSrc: "assets/yoga.svg",
                         press: () {},
                       ),
@@ -86,5 +101,6 @@ class _HomeState extends State<Home> {
         )
       ],
     );
+    //);
   }
 }

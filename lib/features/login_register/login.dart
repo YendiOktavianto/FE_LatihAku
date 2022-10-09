@@ -1,4 +1,5 @@
 //@dart=2.9
+import 'package:fe_latihaku/features/home/home.dart';
 import 'package:fe_latihaku/features/login_register/forgot_password.dart';
 import 'package:fe_latihaku/features/login_register/header_widget.dart';
 import 'package:fe_latihaku/features/login_register/register.dart';
@@ -109,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                               onPressed: () {
                                 //After successful login we will redirect to profile page. Let's create profile page now
                                 changeScreenReplacement(
-                                    context, BottomNavbar());
+                                    context,BottomNavbar());
                               },
                             ),
                           ),

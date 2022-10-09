@@ -20,8 +20,8 @@ class OnboardingContent extends StatelessWidget {
       children: <Widget>[
         Image.asset(
           image,
-          height: getProportionateScreenHeight(390),
-          width: getProportionateScreenWidth(480),
+          height: getProportionateScreenHeight(350),
+          width: getProportionateScreenWidth(400),
         ),
         Spacer(flex: 2),
         Text(
