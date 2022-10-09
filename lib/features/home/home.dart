@@ -1,5 +1,6 @@
 //@dart=2.9
 import 'package:fe_latihaku/coach/coach.dart';
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/features/booking/booking.dart';
 import 'package:fe_latihaku/features/home/home_card.dart';
 import 'package:fe_latihaku/utils/routes.dart';
@@ -37,25 +38,17 @@ class _HomeState extends State<Home> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                    alignment: Alignment.center,
-                    height: 52,
-                    width: 52,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFF2BEA1),
-                      shape: BoxShape.circle,
-                    ),
-                    // child: SvgPicture.asset("assets/icons/menu.svg"),
+
+
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 150.0 ),
+                  child: Text(
+                    "Good Morning, \nShishir",
+                    style: Theme.of(context)
+                        .textTheme
+                        .displayMedium
+                        .copyWith(fontWeight: FontWeight.w900, fontSize: 50.0),
                   ),
-                ),
-                Text(
-                  "Good Mornign \nShishir",
-                  style: Theme.of(context)
-                      .textTheme
-                      .displaySmall
-                      .copyWith(fontWeight: FontWeight.w900),
                 ),
                 // SearchBar(),
                 Expanded(
@@ -66,17 +59,17 @@ class _HomeState extends State<Home> {
                     mainAxisSpacing: 20,
                     children: <Widget>[
                       CategoryCard(
-                        title: "Diet Recommendation",
+                        title: "Find Coach",
                         svgSrc: "assets/Hamburger.svg",
                         press: () {},
                       ),
                       CategoryCard(
-                        title: "Kegel Exercises",
+                        title: "My Coach",
                         svgSrc: "assets/Excrecises.svg",
                         press: () {},
                       ),
                       CategoryCard(
-                        title: "Meditation",
+                        title: "Booking Sport Place",
                         svgSrc: "assets/Meditation.svg",
                         press: () {
                           Navigator.push(

@@ -1,3 +1,4 @@
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/features/login_register/header_widget.dart';
 import 'package:fe_latihaku/features/login_register/theme_helper.dart';
 import 'package:fe_latihaku/profile/profile.dart';
@@ -10,16 +11,18 @@ class ForgotPasswordVerificationPage extends StatefulWidget {
   const ForgotPasswordVerificationPage({Key? key}) : super(key: key);
 
   @override
-  _ForgotPasswordVerificationPageState createState() => _ForgotPasswordVerificationPageState();
+  _ForgotPasswordVerificationPageState createState() =>
+      _ForgotPasswordVerificationPageState();
 }
 
-class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificationPage> {
+class _ForgotPasswordVerificationPageState
+    extends State<ForgotPasswordVerificationPage> {
   final _formKey = GlobalKey<FormState>();
   bool _pinSuccess = false;
 
   @override
   Widget build(BuildContext context) {
-    double _headerHeight = 300;
+    // double _headerHeight = 300;
 
     return Scaffold(
         backgroundColor: Colors.white,
@@ -27,9 +30,9 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
           child: Column(
             children: [
               Container(
-                height: _headerHeight,
-                child: HeaderWidget(
-                    _headerHeight, true, Icons.privacy_tip_outlined),
+                height: getProportionateScreenHeight(300),
+                child: HeaderWidget(getProportionateScreenHeight(300), true,
+                    Icons.privacy_tip_outlined),
               ),
               SafeArea(
                 child: Container(
@@ -44,39 +47,38 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Verification',
+                            Text(
+                              'Verification',
                               style: TextStyle(
                                   fontSize: 35,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black54
-                              ),
+                                  color: Colors.black54),
                               // textAlign: TextAlign.center,
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(
+                              height: getProportionateScreenHeight(10),
+                            ),
                             Text(
                               'Enter the verification code we just sent you on your email address.',
                               style: TextStyle(
-                                // fontSize: 20,
+                                  // fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black54
-                              ),
+                                  color: Colors.black54),
                               // textAlign: TextAlign.center,
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(height: 40.0),
+                      SizedBox(height: getProportionateScreenHeight(40)),
                       Form(
                         key: _formKey,
                         child: Column(
                           children: <Widget>[
                             OTPTextField(
                               length: 4,
-                              width: 300,
-                              fieldWidth: 50,
-                              style: TextStyle(
-                                  fontSize: 30
-                              ),
+                              width: getProportionateScreenWidth(300),
+                              fieldWidth: getProportionateScreenWidth(50),
+                              style: TextStyle(fontSize: 30),
                               textFieldAlignment: MainAxisAlignment.spaceAround,
                               fieldStyle: FieldStyle.underline,
                               onCompleted: (pin) {
@@ -85,7 +87,7 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                                 });
                               },
                             ),
-                            SizedBox(height: 50.0),
+                            SizedBox(height: getProportionateScreenHeight(50)),
                             Text.rich(
                               TextSpan(
                                 children: [
@@ -102,7 +104,8 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                                         showDialog(
                                           context: context,
                                           builder: (BuildContext context) {
-                                            return ThemeHelper().alartDialog("Successful",
+                                            return ThemeHelper().alartDialog(
+                                                "Successful",
                                                 "Verification code resend successful.",
                                                 context);
                                           },
@@ -110,20 +113,22 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                                       },
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.orange
-                                    ),
+                                        color: Colors.orange),
                                   ),
                                 ],
                               ),
                             ),
-                            SizedBox(height: 40.0),
+                            SizedBox(height: getProportionateScreenHeight(40)),
                             Container(
-                              decoration: _pinSuccess ? ThemeHelper().buttonBoxDecoration(context):ThemeHelper().buttonBoxDecoration(context, "#AAAAAA","#757575"),
+                              decoration: _pinSuccess
+                                  ? ThemeHelper().buttonBoxDecoration(context)
+                                  : ThemeHelper().buttonBoxDecoration(
+                                      context, "#AAAAAA", "#757575"),
                               child: ElevatedButton(
                                 style: ThemeHelper().buttonStyle(),
                                 child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                      40, 10, 40, 10),
+                                  padding:
+                                      const EdgeInsets.fromLTRB(40, 10, 40, 10),
                                   child: Text(
                                     "Verify".toUpperCase(),
                                     style: TextStyle(
@@ -133,14 +138,17 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                                     ),
                                   ),
                                 ),
-                                onPressed: _pinSuccess ? () {
-                                  Navigator.of(context).pushAndRemoveUntil(
-                                      MaterialPageRoute(
-                                          builder: (context) => ProfilePage()
-                                      ),
-                                          (Route<dynamic> route) => false
-                                  );
-                                } : null,
+                                onPressed: _pinSuccess
+                                    ? () {
+                                        Navigator.of(context)
+                                            .pushAndRemoveUntil(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        ProfilePage()),
+                                                (Route<dynamic> route) =>
+                                                    false);
+                                      }
+                                    : null,
                               ),
                             ),
                           ],
@@ -152,7 +160,6 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
               )
             ],
           ),
-        )
-    );
+        ));
   }
 }

@@ -49,10 +49,10 @@ class _BookingState extends State<Booking> {
                   //   ),
                   // ),
                   Text(
-                    "Good Mornign \nShishir",
+                    "Good Morning \nShishir",
                     style: Theme.of(context)
                         .textTheme
-                        .displayLarge
+                        .displaySmall
                         .copyWith(fontWeight: FontWeight.w900),
                   ),
                   SearchBar(),
