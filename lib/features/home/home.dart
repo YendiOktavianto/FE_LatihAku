@@ -39,11 +39,11 @@ class _HomeState extends State<Home> {
                 Padding(
                   padding: const EdgeInsets.only(top: 50.0, bottom: 50.0),
                   child: Text(
-                    "Good Mornign \nShishir",
+                    "Good Morning \nShishir",
                     style: Theme.of(context)
                         .textTheme
                         .displayLarge
-                        .copyWith(fontWeight: FontWeight.w900),
+                        .copyWith(fontWeight: FontWeight.w400),
                   ),
                 ),
                 Expanded(

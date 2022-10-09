@@ -1,3 +1,4 @@
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/features/login_register/forgot_password_verification.dart';
 import 'package:fe_latihaku/features/login_register/header_widget.dart';
 import 'package:fe_latihaku/features/login_register/login.dart';
@@ -17,15 +18,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
   @override
   Widget build(BuildContext context) {
-    double _headerHeight = 300;
+    
     return Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Column(
             children: [
               Container(
-                height: _headerHeight,
-                child: HeaderWidget(_headerHeight, true, Icons.password_rounded),
+                height: getProportionateScreenHeight(300),
+                child: HeaderWidget(getProportionateScreenHeight(300), true, Icons.password_rounded),
               ),
               SafeArea(
                 child: Container(
@@ -48,7 +49,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               ),
                               // textAlign: TextAlign.center,
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(height: getProportionateScreenHeight(10),),
                             Text('Enter the email address associated with your account.',
                               style: TextStyle(
                                 // fontSize: 20,
@@ -57,7 +58,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               ),
                               // textAlign: TextAlign.center,
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(height: getProportionateScreenHeight(10),),
                             Text('We will email you a verification code to check your authenticity.',
                               style: TextStyle(
                                 color: Colors.black38,
@@ -68,7 +69,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 40.0),
+                      SizedBox(height: getProportionateScreenHeight(40)),
                       Form(
                         key: _formKey,
                         child: Column(
@@ -88,7 +89,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               ),
                               decoration: ThemeHelper().inputBoxDecorationShaddow(),
                             ),
-                            SizedBox(height: 40.0),
+                            SizedBox(height: getProportionateScreenHeight(40)),
                             Container(
                               decoration: ThemeHelper().buttonBoxDecoration(context),
                               child: ElevatedButton(
@@ -116,7 +117,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                 },
                               ),
                             ),
-                            SizedBox(height: 30.0),
+                            SizedBox(height: getProportionateScreenHeight(30)),
                             Text.rich(
                               TextSpan(
                                 children: [

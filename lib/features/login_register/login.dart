@@ -1,4 +1,5 @@
 //@dart=2.9
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/features/login_register/forgot_password.dart';
 import 'package:fe_latihaku/features/login_register/header_widget.dart';
 import 'package:fe_latihaku/features/login_register/register.dart';
@@ -16,7 +17,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  double _headerHeight = 250;
+  // double _headerHeight = 250;
   Key _formKey = GlobalKey<FormState>();
 
   @override
@@ -27,8 +28,8 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             Container(
-              height: _headerHeight,
-              child: HeaderWidget(_headerHeight, true,
+              height: getProportionateScreenHeight(250),
+              child: HeaderWidget(getProportionateScreenHeight(250), true,
                   Icons.login_rounded), //let's create a common header widget
             ),
             SafeArea(

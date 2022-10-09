@@ -1,4 +1,5 @@
 
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/features/login_register/header_widget.dart';
 import 'package:fe_latihaku/features/login_register/theme_helper.dart';
 import 'package:fe_latihaku/profile/profile.dart';
@@ -75,21 +76,21 @@ class _RegistrationPageState extends State<RegistrationPage>{
                             ],
                           ),
                         ),
-                        SizedBox(height: 30,),
+                        SizedBox(height: getProportionateScreenHeight(30),),
                         Container(
                           child: TextFormField(
                             decoration: ThemeHelper().textInputDecoration('First Name', 'Enter your first name'),
                           ),
                           decoration: ThemeHelper().inputBoxDecorationShaddow(),
                         ),
-                        SizedBox(height: 30,),
+                        SizedBox(height: getProportionateScreenHeight(30),),
                         Container(
                           child: TextFormField(
                             decoration: ThemeHelper().textInputDecoration('Last Name', 'Enter your last name'),
                           ),
                           decoration: ThemeHelper().inputBoxDecorationShaddow(),
                         ),
-                        SizedBox(height: 20.0),
+                        SizedBox(height: getProportionateScreenHeight(20)),
                         Container(
                           child: TextFormField(
                             decoration: ThemeHelper().textInputDecoration("E-mail address", "Enter your email"),
@@ -103,7 +104,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
                           ),
                           decoration: ThemeHelper().inputBoxDecorationShaddow(),
                         ),
-                        SizedBox(height: 20.0),
+                        SizedBox(height: getProportionateScreenHeight(20)),
                         Container(
                           child: TextFormField(
                             decoration: ThemeHelper().textInputDecoration(
@@ -119,7 +120,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
                           ),
                           decoration: ThemeHelper().inputBoxDecorationShaddow(),
                         ),
-                        SizedBox(height: 20.0),
+                        SizedBox(height: getProportionateScreenHeight(20)),
                         Container(
                           child: TextFormField(
                             obscureText: true,
@@ -134,7 +135,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
                           ),
                           decoration: ThemeHelper().inputBoxDecorationShaddow(),
                         ),
-                        SizedBox(height: 15.0),
+                        SizedBox(height: getProportionateScreenHeight(15)),
                         FormField<bool>(
                           builder: (state) {
                             return Column(
@@ -171,7 +172,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
                             }
                           },
                         ),
-                        SizedBox(height: 20.0),
+                        SizedBox(height: getProportionateScreenHeight(20)),
                         Container(
                           decoration: ThemeHelper().buttonBoxDecoration(context),
                           child: ElevatedButton(
@@ -199,9 +200,9 @@ class _RegistrationPageState extends State<RegistrationPage>{
                             },
                           ),
                         ),
-                        SizedBox(height: 30.0),
+                        SizedBox(height: getProportionateScreenHeight(30)),
                         Text("Or create account using social media",  style: TextStyle(color: Colors.grey),),
-                        SizedBox(height: 25.0),
+                        SizedBox(height: getProportionateScreenHeight(25)),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -220,13 +221,13 @@ class _RegistrationPageState extends State<RegistrationPage>{
                                 });
                               },
                             ),
-                            SizedBox(width: 30.0,),
+                            SizedBox(width: getProportionateScreenWidth(30),),
                             GestureDetector(
                               child: Container(
                                 padding: EdgeInsets.all(0),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(100),
-                                  border: Border.all(width: 5, color: HexColor("#40ABF0")),
+                                  border: Border.all(width: getProportionateScreenWidth(5), color: HexColor("#40ABF0")),
                                   color: HexColor("#40ABF0"),
                                 ),
                                 child: FaIcon(
@@ -244,7 +245,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
                                 });
                               },
                             ),
-                            SizedBox(width: 30.0,),
+                            SizedBox(width: getProportionateScreenWidth(30),),
                             GestureDetector(
                               child: FaIcon(
                                 FontAwesomeIcons.facebook, size: 35,

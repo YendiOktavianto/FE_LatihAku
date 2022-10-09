@@ -1,5 +1,6 @@
 //@dart=2.9
 //import 'package:carousel_slider/carousel_slider.dart';
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:flutter/material.dart';
 
 class ActiveDot extends StatelessWidget {
@@ -8,8 +9,8 @@ class ActiveDot extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 8.0),
       child: Container(
-        width: 20,
-        height: 5,
+        width: getProportionateScreenWidth(20),
+        height: getProportionateScreenHeight(5),
         decoration: BoxDecoration(
           color: Colors.black,
           borderRadius: BorderRadius.circular(5),
@@ -25,8 +26,8 @@ class InactiveDot extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 8.0),
       child: Container(
-        width: 8,
-        height: 5,
+        width: getProportionateScreenWidth(8),
+        height: getProportionateScreenHeight(5),
         decoration: BoxDecoration(
           color: Colors.black.withOpacity(0.3),
           borderRadius: BorderRadius.circular(5),
