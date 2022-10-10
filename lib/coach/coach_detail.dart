@@ -1,4 +1,5 @@
 //@dart=2.9
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/models/coach_modeltesting.dart';
 import 'package:flutter/material.dart';
 
@@ -64,10 +65,10 @@ class _CoachDetailState extends State<CoachDetail> {
                           color: Colors.black),
                     ),
                     SizedBox(
-                      height: 5,
+                      height: getProportionateScreenHeight(5),
                     ),
                     Container(
-                      height: 50,
+                      height: getProportionateScreenHeight(50),
                       width: width,
                       child: ListView.builder(
                         itemCount: menu[widget.index].rate,
@@ -82,7 +83,7 @@ class _CoachDetailState extends State<CoachDetail> {
                       ),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: getProportionateScreenHeight(10),
                     ),
                     Text(
                       "Description",
@@ -92,7 +93,7 @@ class _CoachDetailState extends State<CoachDetail> {
                           fontWeight: FontWeight.w900),
                     ),
                     SizedBox(
-                      height: 8,
+                      height: getProportionateScreenHeight(8),
                     ),
                     Text(
                       menu[widget.index].desc,
@@ -104,7 +105,7 @@ class _CoachDetailState extends State<CoachDetail> {
                           wordSpacing: 1.5),
                     ),
                     SizedBox(
-                      height: 40,
+                      height: getProportionateScreenHeight(40),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -43,7 +43,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           children: [
                             Text('Forgot Password?',
                               style: TextStyle(
-                                  fontSize: 35,
+                                  fontSize: getProportionateScreenWidth(35),
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black54
                               ),
@@ -100,7 +100,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                   child: Text(
                                     "Send".toUpperCase(),
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: getProportionateScreenWidth(20),
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
                                     ),

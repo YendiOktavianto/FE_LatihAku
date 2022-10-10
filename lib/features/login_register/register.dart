@@ -28,7 +28,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
         child: Stack(
           children: [
             Container(
-              height: 150,
+              height: getProportionateScreenWidth(150),
               child: HeaderWidget(150, false, Icons.person_add_alt_1_rounded),
             ),
             Container(
@@ -49,7 +49,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(100),
                                   border: Border.all(
-                                      width: 5, color: Colors.white),
+                                      width: getProportionateScreenWidth(5), color: Colors.white),
                                   color: Colors.white,
                                   boxShadow: [
                                     BoxShadow(
@@ -158,7 +158,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
                                   child: Text(
                                     state.errorText ?? '',
                                     textAlign: TextAlign.left,
-                                    style: TextStyle(color: Theme.of(context).errorColor,fontSize: 12,),
+                                    style: TextStyle(color: Theme.of(context).errorColor,fontSize: getProportionateScreenWidth(12),),
                                   ),
                                 )
                               ],
@@ -182,7 +182,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
                               child: Text(
                                 "Register".toUpperCase(),
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: getProportionateScreenWidth(20),
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),

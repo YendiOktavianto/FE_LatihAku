@@ -47,7 +47,7 @@ class _HomeState extends State<Home> {
                     style: Theme.of(context)
                         .textTheme
                         .displayMedium
-                        .copyWith(fontWeight: FontWeight.w900, fontSize: 50.0),
+                        .copyWith(fontWeight: FontWeight.w900, fontSize: getProportionateScreenWidth(50)),
                   ),
                 ),
                 // SearchBar(),
