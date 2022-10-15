@@ -78,7 +78,8 @@ class _ForgotPasswordVerificationPageState
                               length: 4,
                               width: getProportionateScreenWidth(300),
                               fieldWidth: getProportionateScreenWidth(50),
-                              style: TextStyle(fontSize: getProportionateScreenWidth(30)),
+                              style: TextStyle(
+                                  fontSize: getProportionateScreenWidth(30)),
                               textFieldAlignment: MainAxisAlignment.spaceAround,
                               fieldStyle: FieldStyle.underline,
                               onCompleted: (pin) {
