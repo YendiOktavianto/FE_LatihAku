@@ -1,6 +1,7 @@
 //@dart=2.9
 import 'package:fe_latihaku/coach/coach.dart';
 import 'package:fe_latihaku/configurations/size_config.dart';
+import 'package:fe_latihaku/constants/constant_text_styles.dart';
 import 'package:fe_latihaku/features/booking/booking.dart';
 import 'package:fe_latihaku/features/home/home_card.dart';
 import 'package:fe_latihaku/utils/routes.dart';
@@ -44,7 +45,8 @@ class _HomeState extends State<Home> {
                   padding: const EdgeInsets.only(bottom: 150.0 ),
                   child: Text(
                     "Good Morning, \nShishir",
-                    style: Theme.of(context)
+                    style: //headingStyle
+                    Theme.of(context)
                         .textTheme
                         .displayMedium
                         .copyWith(fontWeight: FontWeight.w900, fontSize: 50.0),
@@ -61,7 +63,9 @@ class _HomeState extends State<Home> {
                       CategoryCard(
                         title: "Find Coach",
                         svgSrc: "assets/Hamburger.svg",
-                        press: () {},
+                        press: () {
+                          changeScreen(context, Coach());
+                        },
                       ),
                       CategoryCard(
                         title: "My Coach",
@@ -81,7 +85,7 @@ class _HomeState extends State<Home> {
                         },
                       ),
                       CategoryCard(
-                        title: "Yoga",
+                        title: "Status Booking Place",
                         svgSrc: "assets/yoga.svg",
                         press: () {},
                       ),

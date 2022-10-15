@@ -1,4 +1,5 @@
 import 'package:fe_latihaku/configurations/size_config.dart';
+import 'package:fe_latihaku/constants/constant_colors.dart';
 import 'package:flutter/material.dart';
 
 final headingStyle = TextStyle(

@@ -53,7 +53,7 @@ class _CoachState extends State<Coach> {
                     "Good Mornign \nShishir",
                     style: Theme.of(context)
                         .textTheme
-                        .displayLarge
+                        .displaySmall
                         .copyWith(fontWeight: FontWeight.w900),
                   ),
                   SearchBar(),
