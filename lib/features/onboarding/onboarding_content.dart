@@ -1,6 +1,7 @@
 //@dart=2.9
 import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/constants/constant_colors.dart';
+import 'package:fe_latihaku/constants/constant_text_styles.dart';
 import 'package:flutter/material.dart';
 
 
@@ -27,12 +28,7 @@ class OnboardingContent extends StatelessWidget {
         Text(
           head,
           textAlign: TextAlign.center,
-          style: TextStyle(
-              color: headColor,
-              fontWeight: FontWeight.bold,
-              fontSize: getProportionateScreenWidth(25),
-              wordSpacing: 2.0,
-              letterSpacing: 2.0),
+          style: alkamiBlackBold,
         ),
         SizedBox(
           height: getProportionateScreenHeight(10),
