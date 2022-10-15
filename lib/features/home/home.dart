@@ -1,7 +1,6 @@
 //@dart=2.9
 import 'package:fe_latihaku/coach/coach.dart';
 import 'package:fe_latihaku/configurations/size_config.dart';
-import 'package:fe_latihaku/constants/constant_text_styles.dart';
 import 'package:fe_latihaku/features/booking/booking.dart';
 import 'package:fe_latihaku/features/home/home_card.dart';
 import 'package:fe_latihaku/utils/routes.dart';
@@ -24,7 +23,7 @@ class _HomeState extends State<Home> {
       children: <Widget>[
         Container(
           // Here the height of the container is 45% of our total height
-          height: size.height * .45,
+          height: getProportionateScreenHeight(365),
           decoration: BoxDecoration(
             color: Color(0xFFF5CEB8),
             image: DecorationImage(
@@ -42,7 +41,7 @@ class _HomeState extends State<Home> {
 
 
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 150.0 ),
+                  padding: const EdgeInsets.only(bottom: 80.0 ),
                   child: Text(
                     "Good Morning, \nShishir",
                     style: //headingStyle

@@ -28,3 +28,5 @@ final ubuntuBlackBold = TextStyle(
   height: getProportionateScreenHeight(1.5),
   letterSpacing: getProportionateScreenWidth(2),
 );
+
+

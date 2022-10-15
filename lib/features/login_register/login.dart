@@ -1,6 +1,9 @@
 //@dart=2.9
 
 import 'package:fe_latihaku/configurations/size_config.dart';
+import 'package:fe_latihaku/constants/constant_button.dart';
+import 'package:fe_latihaku/constants/constant_text_form.dart';
+import 'package:fe_latihaku/constants/constant_text_styles.dart';
 
 import 'package:fe_latihaku/features/login_register/forgot_password.dart';
 import 'package:fe_latihaku/features/login_register/header_widget.dart';
@@ -20,6 +23,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   // double _headerHeight = 250;
+  TextEditingController userNameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   Key _formKey = GlobalKey<FormState>();
 
   @override
@@ -43,8 +48,9 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Text(
                       'Hello',
-                      style:
-                          TextStyle(fontSize: getProportionateScreenWidth(60), fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: getProportionateScreenWidth(60),
+                          fontWeight: FontWeight.bold),
                     ),
                     Text(
                       'Signin into your account',
@@ -55,14 +61,27 @@ class _LoginPageState extends State<LoginPage> {
                       key: _formKey,
                       child: Column(
                         children: [
-                          Container(
-                            child: TextField(
-                              decoration: ThemeHelper().textInputDecoration(
-                                  'User Name', 'Enter your user name'),
-                            ),
-                            decoration:
-                                ThemeHelper().inputBoxDecorationShaddow(),
+                          FormTextField(
+                            validatorForm: (value) {
+                              if (value.isEmpty) {
+                                return "The password field cannot be empty";//showSnackBar("The password field cannot be empty", _key);
+                              } else if (value.length < 6) {
+                                return "The password has to be at least 6 characters long";//showSnackBar("The password has to be at least 6 characters long", _key);
+                              }
+                              return null;
+                            },
+                            textType: TextInputType.phone,
+                            textLabel: "Nomor HP",
+                            textHint: "Masukkan Nomor HP Anda",
+                            //controller: nomorHpController,
                           ),
+                          SizedBox(height: getProportionateScreenHeight(30)),
+                          MultilineFormTextField(
+                              textType: TextInputType.multiline,
+                              textLabel: "Alamat",
+                              textHint: "Masukkan Alamat Anda",
+                              //controller: alamatController,
+                              height: 20.0),
                           SizedBox(height: getProportionateScreenHeight(30)),
                           Container(
                             child: TextField(
@@ -94,28 +113,41 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
-                          Container(
-                            decoration:
-                                ThemeHelper().buttonBoxDecoration(context),
-                            child: ElevatedButton(
-                              style: ThemeHelper().buttonStyle(),
-                              child: Padding(
-                                padding: EdgeInsets.fromLTRB(40, 10, 40, 10),
-                                child: Text(
-                                  'Sign In'.toUpperCase(),
-                                  style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(20),
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
+                          ElevatedBtnApp(
+                              shapex: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(30),
+                                  ),
+                                  side: BorderSide(color: Colors.purple, width: 3.0)),
+                              childx: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text("Login", style: ubuntuBlackBold,),
                               ),
-                              onPressed: () {
-                                //After successful login we will redirect to profile page. Let's create profile page now
-                                changeScreenReplacement(
-                                    context,BottomNavbar());
-                              },
-                            ),
-                          ),
+                              onPressedx: () {
+                                changeScreen(context, BottomNavbar());
+                              }),
+                          // Container(
+                          //   decoration:
+                          //       ThemeHelper().buttonBoxDecoration(context),
+                          //   child: ElevatedButton(
+                          //     style: ThemeHelper().buttonStyle(),
+                          //     child: Padding(
+                          //       padding: EdgeInsets.fromLTRB(40, 10, 40, 10),
+                          //       child: Text(
+                          //         'Sign In'.toUpperCase(),
+                          //         style: TextStyle(
+                          //             fontSize: getProportionateScreenWidth(20),
+                          //             fontWeight: FontWeight.bold,
+                          //             color: Colors.white),
+                          //       ),
+                          //     ),
+                          //     onPressed: () {
+                          //       //After successful login we will redirect to profile page. Let's create profile page now
+                          //       changeScreenReplacement(
+                          //           context,BottomNavbar());
+                          //     },
+                          //   ),
+                          // ),
                           Container(
                             margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
                             child: Text.rich(
