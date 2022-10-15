@@ -1,4 +1,5 @@
 //@dart=2.9
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/features/login_register/forgot_password.dart';
 import 'package:fe_latihaku/features/login_register/forgot_password_verification.dart';
 import 'package:fe_latihaku/features/login_register/header_widget.dart';
@@ -67,13 +68,13 @@ class _ProfilePageState extends State<ProfilePage>{
                 child: Container(
                   alignment: Alignment.bottomLeft,
                   child: Text("FlutterTutorial.Net",
-                    style: TextStyle(fontSize: 25,color: Colors.white, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: getProportionateScreenWidth(25),color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
               ListTile(
                 leading: Icon(Icons.screen_lock_landscape_rounded, size: _drawerIconSize, color: Theme.of(context).accentColor,),
-                title: Text('Splash Screen', style: TextStyle(fontSize: 17, color: Theme.of(context).accentColor),),
+                title: Text('Splash Screen', style: TextStyle(fontSize: getProportionateScreenWidth(17), color: Theme.of(context).accentColor),),
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context) => LoadingScreen()));
                 },
@@ -86,7 +87,7 @@ class _ProfilePageState extends State<ProfilePage>{
                   Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()),);
                 },
               ),
-              Divider(color: Theme.of(context).primaryColor, height: 1,),
+              Divider(color: Theme.of(context).primaryColor, height: getProportionateScreenHeight(1),),
               ListTile(
                 leading: Icon(Icons.person_add_alt_1, size: _drawerIconSize,color: Theme.of(context).accentColor),
                 title: Text('Registration Page',style: TextStyle(fontSize: _drawerFontSize,color: Theme.of(context).accentColor),),
@@ -94,7 +95,7 @@ class _ProfilePageState extends State<ProfilePage>{
                   Navigator.push(context, MaterialPageRoute(builder: (context) => RegistrationPage()),);
                 },
               ),
-              Divider(color: Theme.of(context).primaryColor, height: 1,),
+              Divider(color: Theme.of(context).primaryColor, height: getProportionateScreenHeight(1),),
               ListTile(
                 leading: Icon(Icons.password_rounded, size: _drawerIconSize,color: Theme.of(context).accentColor,),
                 title: Text('Forgot Password Page',style: TextStyle(fontSize: _drawerFontSize,color: Theme.of(context).accentColor),),
@@ -102,7 +103,7 @@ class _ProfilePageState extends State<ProfilePage>{
                   Navigator.push( context, MaterialPageRoute(builder: (context) => ForgotPasswordPage()),);
                 },
               ),
-              Divider(color: Theme.of(context).primaryColor, height: 1,),
+              Divider(color: Theme.of(context).primaryColor, height: getProportionateScreenHeight(1),),
               ListTile(
                 leading: Icon(Icons.verified_user_sharp, size: _drawerIconSize,color: Theme.of(context).accentColor,),
                 title: Text('Verification Page',style: TextStyle(fontSize: _drawerFontSize,color: Theme.of(context).accentColor),),
@@ -110,7 +111,7 @@ class _ProfilePageState extends State<ProfilePage>{
                   Navigator.push( context, MaterialPageRoute(builder: (context) => ForgotPasswordVerificationPage()), );
                 },
               ),
-              Divider(color: Theme.of(context).primaryColor, height: 1,),
+              Divider(color: Theme.of(context).primaryColor, height: getProportionateScreenHeight(1),),
               ListTile(
                 leading: Icon(Icons.logout_rounded, size: _drawerIconSize,color: Theme.of(context).accentColor,),
                 title: Text('Logout',style: TextStyle(fontSize: _drawerFontSize,color: Theme.of(context).accentColor),),
@@ -125,7 +126,7 @@ class _ProfilePageState extends State<ProfilePage>{
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            Container(height: 100, child: HeaderWidget(100,false,Icons.house_rounded),),
+            Container(height: getProportionateScreenHeight(100), child: HeaderWidget(100,false,Icons.house_rounded),),
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.fromLTRB(25, 10, 25, 10),
@@ -136,7 +137,7 @@ class _ProfilePageState extends State<ProfilePage>{
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(100),
-                      border: Border.all(width: 5, color: Colors.white),
+                      border: Border.all(width: getProportionateScreenWidth(5), color: Colors.white),
                       color: Colors.white,
                       boxShadow: [
                         BoxShadow(color: Colors.black12, blurRadius: 20, offset: const Offset(5, 5),),
@@ -144,11 +145,11 @@ class _ProfilePageState extends State<ProfilePage>{
                     ),
                     child: Icon(Icons.person, size: 80, color: Colors.grey.shade300,),
                   ),
-                  SizedBox(height: 20,),
-                  Text('Mr. Donald Trump', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
-                  SizedBox(height: 20,),
-                  Text('Former President', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                  SizedBox(height: 10,),
+                  SizedBox(height: getProportionateScreenHeight(20),),
+                  Text('Mr. Donald Trump', style: TextStyle(fontSize: getProportionateScreenWidth(22), fontWeight: FontWeight.bold),),
+                  SizedBox(height: getProportionateScreenHeight(20),),
+                  Text('Former President', style: TextStyle(fontSize: getProportionateScreenWidth(16), fontWeight: FontWeight.bold),),
+                  SizedBox(height: getProportionateScreenHeight(10),),
                   Container(
                     padding: EdgeInsets.all(10),
                     child: Column(
@@ -161,7 +162,7 @@ class _ProfilePageState extends State<ProfilePage>{
                             style: TextStyle(
                               color: Colors.black87,
                               fontWeight: FontWeight.w500,
-                              fontSize: 16,
+                              fontSize: getProportionateScreenWidth(16),
                             ),
                             textAlign: TextAlign.left,
                           ),

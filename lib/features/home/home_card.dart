@@ -1,4 +1,5 @@
 //@dart=2.9
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/constants/constant_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -49,7 +50,7 @@ class CategoryCard extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .titleLarge
-                        .copyWith(fontSize: 15),
+                        .copyWith(fontSize: getProportionateScreenWidth(15)),
                   )
                 ],
               ),

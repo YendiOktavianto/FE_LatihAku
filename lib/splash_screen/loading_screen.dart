@@ -1,4 +1,5 @@
 //@dart=2.9
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/features/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
@@ -13,7 +14,7 @@ class LoadingScreen extends StatelessWidget {
       navigateAfterSeconds: new Home(),
       title: new Text(
         'Welcome In SplashScreen',
-        style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+        style: new TextStyle(fontWeight: FontWeight.bold, fontSize: getProportionateScreenWidth(20)),
       ),
       image: new Image.network(
           'https://flutter.io/images/catalog-widget-placeholder.png'),

@@ -1,5 +1,6 @@
 //@dart=2.9
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/features/home/home.dart';
 import 'package:fe_latihaku/profile/profile.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
         bottomNavigationBar: CurvedNavigationBar(
           key: _bottomNavigationKey,
           index: 0,
-          height: 60.0,
+          height: getProportionateScreenHeight(60),
           items: <Widget>[
             Icon(Icons.home, size: 30),
             Icon(Icons.shopping_cart, size: 30),

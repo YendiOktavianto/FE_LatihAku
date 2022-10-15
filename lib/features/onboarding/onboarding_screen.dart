@@ -38,7 +38,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           child: Column(
             children: <Widget>[
               SizedBox(
-                height: 40,
+                height: getProportionateScreenHeight(40),
               ),
               Expanded(
                 flex: 5,
@@ -55,7 +55,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: getProportionateScreenHeight(20),
               ),
               Expanded(
                 flex: 2,
@@ -65,7 +65,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   child: Column(
                     children: <Widget>[
                       SizedBox(
-                        height: 30,
+                        height: getProportionateScreenHeight(30),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -75,14 +75,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 50,
+                        height: getProportionateScreenHeight(50),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             'Skip',
-                            style: TextStyle(color: bodyColor, fontSize: 16),
+                            style: TextStyle(color: bodyColor, fontSize: getProportionateScreenWidth(16)),
                           ),
                           InkWell(
                             onTap: () {
@@ -95,7 +95,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               }
                             },
                             child: Container(
-                              height: 50,
+                              height: getProportionateScreenHeight(50),
                               width: (_currentPage == (onboardingData.length - 1))
                                       ? 200
                                       : 50,
@@ -119,7 +119,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                             "Get Started",
                                             style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: 20,
+                                              fontSize: getProportionateScreenWidth(20),
                                             ),
                                           ),
                                         )
@@ -146,7 +146,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return AnimatedContainer(
       duration: kAnimationDuration,
       margin: EdgeInsets.only(right: 7),
-      height: 3,
+      height: getProportionateScreenHeight(3),
       width: _currentPage == index ? 30 : 15,
       decoration: BoxDecoration(
         color: _currentPage == index ? dotColor : notDotColor,

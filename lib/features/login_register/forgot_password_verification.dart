@@ -50,7 +50,7 @@ class _ForgotPasswordVerificationPageState
                             Text(
                               'Verification',
                               style: TextStyle(
-                                  fontSize: 35,
+                                  fontSize: getProportionateScreenWidth(35),
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black54),
                               // textAlign: TextAlign.center,
@@ -78,7 +78,7 @@ class _ForgotPasswordVerificationPageState
                               length: 4,
                               width: getProportionateScreenWidth(300),
                               fieldWidth: getProportionateScreenWidth(50),
-                              style: TextStyle(fontSize: 30),
+                              style: TextStyle(fontSize: getProportionateScreenWidth(30)),
                               textFieldAlignment: MainAxisAlignment.spaceAround,
                               fieldStyle: FieldStyle.underline,
                               onCompleted: (pin) {
@@ -132,7 +132,7 @@ class _ForgotPasswordVerificationPageState
                                   child: Text(
                                     "Verify".toUpperCase(),
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: getProportionateScreenWidth(20),
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
                                     ),

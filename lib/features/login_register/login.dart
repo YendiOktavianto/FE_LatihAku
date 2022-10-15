@@ -44,13 +44,13 @@ class _LoginPageState extends State<LoginPage> {
                     Text(
                       'Hello',
                       style:
-                          TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: getProportionateScreenWidth(60), fontWeight: FontWeight.bold),
                     ),
                     Text(
                       'Signin into your account',
                       style: TextStyle(color: Colors.grey),
                     ),
-                    SizedBox(height: 30.0),
+                    SizedBox(height: getProportionateScreenHeight(30)),
                     Form(
                       key: _formKey,
                       child: Column(
@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                             decoration:
                                 ThemeHelper().inputBoxDecorationShaddow(),
                           ),
-                          SizedBox(height: 30.0),
+                          SizedBox(height: getProportionateScreenHeight(30)),
                           Container(
                             child: TextField(
                               obscureText: true,
@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                             decoration:
                                 ThemeHelper().inputBoxDecorationShaddow(),
                           ),
-                          SizedBox(height: 15.0),
+                          SizedBox(height: getProportionateScreenHeight(15)),
                           Container(
                             margin: EdgeInsets.fromLTRB(10, 0, 10, 20),
                             alignment: Alignment.topRight,
@@ -104,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                                 child: Text(
                                   'Sign In'.toUpperCase(),
                                   style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: getProportionateScreenWidth(20),
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white),
                                 ),

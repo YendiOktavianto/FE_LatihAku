@@ -1,4 +1,5 @@
 //@dart=2.9
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/constants/constant_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -33,13 +34,13 @@ class OrderButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SvgPicture.asset("assets/icons/bag.svg"),
-                SizedBox(width: 10),
+                SizedBox(width: getProportionateScreenWidth(10)),
                 Text(
                   "Order Now",
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                    fontSize: getProportionateScreenWidth(18),
                   ),
                 )
               ],

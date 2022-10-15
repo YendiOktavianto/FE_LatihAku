@@ -1,5 +1,6 @@
 //@dart=2.9
 import 'package:fe_latihaku/coach/coach_detail.dart';
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/utils/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -35,8 +36,8 @@ class CoachCard extends StatelessWidget {
                     radius: 30,
                     backgroundImage: ExactAssetImage(images[index]),
                   ),
-                  title: Text(title[index], style: TextStyle(fontSize: 14)),
-                  subtitle: Text(phones[index], style: TextStyle(fontSize: 10)),
+                  title: Text(title[index], style: TextStyle(fontSize: getProportionateScreenWidth(14))),
+                  subtitle: Text(phones[index], style: TextStyle(fontSize: getProportionateScreenWidth(10))),
                   trailing: Icon(Icons.tag_faces),
                 ),
               ),

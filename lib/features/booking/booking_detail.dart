@@ -1,5 +1,6 @@
 //@dart=2.9
 import 'package:animate_do/animate_do.dart';
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/constants/constant_colors.dart';
 import 'package:fe_latihaku/features/booking/booking_image.dart';
 import 'package:fe_latihaku/utils/button.dart';
@@ -71,7 +72,7 @@ class ItemInfo extends StatelessWidget {
           Text(
             "Nowadays, making printed materials have become fast, easy and simple. If you want your promotional material to be an eye-catching object, you should make it colored. By way of using inkjet printer this is not hard to make. An inkjet printer is any printer that places extremely small droplets of ink onto paper to create an image.",
             style: TextStyle(
-              height: 1.5,
+              height: getProportionateScreenHeight(1.5),
             ),
           ),
           SizedBox(height: size.height * 0.1),
@@ -92,7 +93,7 @@ class ItemInfo extends StatelessWidget {
           Icons.location_on,
           color: kSecondaryColor,
         ),
-        SizedBox(width: 10),
+        SizedBox(width: getProportionateScreenWidth(10)),
         Text(name),
       ],
     );

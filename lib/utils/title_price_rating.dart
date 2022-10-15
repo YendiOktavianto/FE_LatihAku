@@ -1,4 +1,5 @@
 //@dart=2.9
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/constants/constant_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
@@ -31,7 +32,7 @@ class TitlePriceRating extends StatelessWidget {
                   name,
                   style: Theme.of(context).textTheme.headline3,
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: getProportionateScreenHeight(10)),
                 Row(
                   children: <Widget>[
                     SmoothStarRating(
@@ -45,7 +46,7 @@ class TitlePriceRating extends StatelessWidget {
                       allowHalfRating: true,
                       spacing: 2.0,
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: getProportionateScreenWidth(10)),
                     Text("$numOfReviews reviews"),
                   ],
                 ),
@@ -64,8 +65,8 @@ class TitlePriceRating extends StatelessWidget {
       child: Container(
         alignment: Alignment.topCenter,
         padding: EdgeInsets.symmetric(vertical: 15),
-        height: 66,
-        width: 65,
+        height: getProportionateScreenHeight(66),
+        width: getProportionateScreenWidth(65),
         color: kPrimaryColor,
         child: Text(
           "\$$price",
@@ -83,7 +84,7 @@ class PricerCliper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path = Path();
-    double ignoreHeight = 20;
+    double ignoreHeight = getProportionateScreenHeight(20);
     path.lineTo(0, size.height - ignoreHeight);
     path.lineTo(size.width / 2, size.height);
     path.lineTo(size.width, size.height - ignoreHeight);
