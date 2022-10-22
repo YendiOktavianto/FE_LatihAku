@@ -1,4 +1,5 @@
 //@dart=2.9
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/features/booking/booking_card.dart';
 import 'package:fe_latihaku/utils/search_bar.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _BookingState extends State<Booking> {
         children: <Widget>[
           Container(
             // Here the height of the container is 45% of our total height
-            height: size.height * .45,
+            height: getProportionateScreenHeight(365.4),
             decoration: BoxDecoration(
               color: Color(0xFFF5CEB8),
               image: DecorationImage(

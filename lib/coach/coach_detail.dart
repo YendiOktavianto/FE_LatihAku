@@ -35,18 +35,18 @@ class _CoachDetailState extends State<CoachDetail> {
                 child: Container(
                   decoration: BoxDecoration(
                       gradient: LinearGradient(colors: [
-                        Colors.black.withOpacity(0.9),
-                        Colors.black.withOpacity(0.5),
-                        Colors.black.withOpacity(0.0),
-                        Colors.black.withOpacity(0.0),
-                        Colors.black.withOpacity(0.5),
-                        Colors.black.withOpacity(0.9),
-                      ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
+                    Colors.black.withOpacity(0.9),
+                    Colors.black.withOpacity(0.5),
+                    Colors.black.withOpacity(0.0),
+                    Colors.black.withOpacity(0.0),
+                    Colors.black.withOpacity(0.5),
+                    Colors.black.withOpacity(0.9),
+                  ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
                 ),
               ),
               Container(
                 width: width,
-                margin: EdgeInsets.only(top: height * 0.5),
+                margin: EdgeInsets.only(top: getProportionateScreenHeight(406)),
                 padding: EdgeInsets.all(30),
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -60,7 +60,7 @@ class _CoachDetailState extends State<CoachDetail> {
                     Text(
                       menu[widget.index].name,
                       style: TextStyle(
-                          fontSize: 32,
+                          fontSize: getProportionateScreenWidth(32),
                           fontWeight: FontWeight.bold,
                           color: Colors.black),
                     ),
@@ -89,7 +89,7 @@ class _CoachDetailState extends State<CoachDetail> {
                       "Description",
                       style: TextStyle(
                           color: Colors.black,
-                          fontSize: 16,
+                          fontSize: getProportionateScreenWidth(16),
                           fontWeight: FontWeight.w900),
                     ),
                     SizedBox(
@@ -98,7 +98,7 @@ class _CoachDetailState extends State<CoachDetail> {
                     Text(
                       menu[widget.index].desc,
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: getProportionateScreenWidth(16),
                           color: Colors.black,
                           fontWeight: FontWeight.normal,
                           letterSpacing: 0.5,
@@ -117,14 +117,14 @@ class _CoachDetailState extends State<CoachDetail> {
                               "Price",
                               style: TextStyle(
                                   color: Colors.grey[500],
-                                  fontSize: 16,
+                                  fontSize: getProportionateScreenWidth(16),
                                   fontWeight: FontWeight.w600),
                             ),
                             Text(
                               menu[widget.index].price.toString(),
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 28,
+                                  fontSize: getProportionateScreenWidth(28),
                                   fontWeight: FontWeight.bold),
                             )
                           ],
@@ -132,25 +132,21 @@ class _CoachDetailState extends State<CoachDetail> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(35, 15, 35, 15),
                           child: ElevatedButton(
-
                             onPressed: () {},
                             style: ButtonStyle(
-
-                              backgroundColor:MaterialStateProperty.all<Color>(
-                                  Colors.orange[800]
-                              ) ,
-                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange[800]),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10.0),
-                                        //side: BorderSide(color: Colors.orange[800])
-
-                                    )
-                                )
-                            ),
-
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  //side: BorderSide(color: Colors.orange[800])
+                                ))),
                             child: Text(
                               "Add to cart",
-                              style: TextStyle(color: Colors.white, fontSize: 18),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: getProportionateScreenWidth(18)),
                             ),
                           ),
                         )
@@ -161,7 +157,7 @@ class _CoachDetailState extends State<CoachDetail> {
               ),
               Positioned(
                 left: 30,
-                top: height * 0.05,
+                top: getProportionateScreenHeight(40.6),
                 child: GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
@@ -175,7 +171,7 @@ class _CoachDetailState extends State<CoachDetail> {
               ),
               Positioned(
                 right: 30,
-                top: height * 0.45,
+                top: getProportionateScreenHeight(365.4),
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
@@ -183,8 +179,8 @@ class _CoachDetailState extends State<CoachDetail> {
                     });
                   },
                   child: Container(
-                    height: 70,
-                    width: 70,
+                    height: getProportionateScreenHeight(70),
+                    width: getProportionateScreenWidth(70),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(35),

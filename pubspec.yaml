@@ -84,9 +84,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-     - family: Alkami
+     - family: Arvo
        fonts:
-         - asset: assets/fonts/Alkalami-Regular.ttf
+         - asset: assets/fonts/Arvo-Regular.ttf
      - family: RobotoCondensed
        fonts:
          - asset: assets/fonts/RobotoCondensed-Regular.ttf

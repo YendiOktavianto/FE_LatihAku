@@ -36,8 +36,12 @@ class CoachCard extends StatelessWidget {
                     radius: 30,
                     backgroundImage: ExactAssetImage(images[index]),
                   ),
-                  title: Text(title[index], style: TextStyle(fontSize: getProportionateScreenWidth(14))),
-                  subtitle: Text(phones[index], style: TextStyle(fontSize: getProportionateScreenWidth(10))),
+                  title: Text(title[index],
+                      style:
+                          TextStyle(fontSize: getProportionateScreenWidth(14))),
+                  subtitle: Text(phones[index],
+                      style:
+                          TextStyle(fontSize: getProportionateScreenWidth(10))),
                   trailing: Icon(Icons.tag_faces),
                 ),
               ),

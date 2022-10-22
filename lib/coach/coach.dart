@@ -1,5 +1,6 @@
 //@dart=2.9
 import 'package:fe_latihaku/coach/coach_card.dart';
+import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/models/coach_modeltesting.dart';
 import 'package:fe_latihaku/utils/search_bar.dart';
 import 'package:flutter/material.dart';
@@ -12,16 +13,16 @@ class Coach extends StatefulWidget {
 }
 
 class _CoachState extends State<Coach> {
-
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size; //this gonna give us total height and with of our device
+    var size = MediaQuery.of(context)
+        .size; //this gonna give us total height and with of our device
     return Scaffold(
       body: Stack(
         children: <Widget>[
           Container(
             // Here the height of the container is 45% of our total height
-            height: size.height * .45,
+            height: getProportionateScreenHeight(365),
             decoration: BoxDecoration(
               color: Color(0xFFF5CEB8),
               image: DecorationImage(
@@ -58,7 +59,11 @@ class _CoachState extends State<Coach> {
                   ),
                   SearchBar(),
                   Expanded(
-                    child: CoachCard(images: myList,phones: phones,title: names,),
+                    child: CoachCard(
+                      images: myList,
+                      phones: phones,
+                      title: names,
+                    ),
                   ),
                 ],
               ),

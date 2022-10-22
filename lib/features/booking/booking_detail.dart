@@ -75,7 +75,7 @@ class ItemInfo extends StatelessWidget {
               height: getProportionateScreenHeight(1.5),
             ),
           ),
-          SizedBox(height: size.height * 0.1),
+          SizedBox(height: getProportionateScreenHeight(81.2)),
           // Free space  10% of total height
           OrderButton(
             size: size,

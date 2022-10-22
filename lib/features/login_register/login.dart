@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                               textLabel: "Alamat",
                               textHint: "Masukkan Alamat Anda",
                               //controller: alamatController,
-                              height: 20.0),
+                              height: getProportionateScreenHeight(20)),
                           SizedBox(height: getProportionateScreenHeight(30)),
                           Container(
                             child: TextField(
@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(30),
                                   ),
-                                  side: BorderSide(color: Colors.purple, width: 3.0)),
+                                  side: BorderSide(color: Colors.purple, width: getProportionateScreenWidth(3))),
                               childx: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text("Login", style: ubuntuBlackBold,),

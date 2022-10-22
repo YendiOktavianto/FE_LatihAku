@@ -67,8 +67,8 @@ class _ProductSliderState extends State<ProductSlider> {
         // overflow: Overflow.visible,
         children: <Widget>[
           Container(
-            height: MediaQuery.of(context).size.height * 0.25,
-            width: MediaQuery.of(context).size.width,
+            height: getProportionateScreenHeight(203),
+            width: getProportionateScreenWidth(375),
             child: Container()
             // CarouselSlider(
             //   options: CarouselOptions(
