@@ -2,11 +2,38 @@ import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/constants/constant_colors.dart';
 import 'package:flutter/material.dart';
 
-final alkamiBlackBold = TextStyle(
-  fontFamily: 'Alkami',
+final arvoOrangeBold = TextStyle(
+  fontFamily: 'Arvo',
   fontSize: getProportionateScreenWidth(28),
   fontWeight: FontWeight.bold,
-  color: dotColor,
+  color: originalOrangeColor,
+  height: getProportionateScreenHeight(1.5),
+  letterSpacing: getProportionateScreenWidth(2),
+);
+
+final arvoOrangeRegular = TextStyle(
+  fontFamily: 'Arvo',
+  fontSize: getProportionateScreenWidth(28),
+  fontWeight: FontWeight.normal,
+  color: originalOrangeColor,
+  height: getProportionateScreenHeight(1.5),
+  letterSpacing: getProportionateScreenWidth(2),
+);
+
+final arvoBlueBold = TextStyle(
+  fontFamily: 'Arvo',
+  fontSize: getProportionateScreenWidth(28),
+  fontWeight: FontWeight.bold,
+  color: originalBlueColor,
+  height: getProportionateScreenHeight(1.5),
+  letterSpacing: getProportionateScreenWidth(2),
+);
+
+final arvoBlueRegular = TextStyle(
+  fontFamily: 'Arvo',
+  fontSize: getProportionateScreenWidth(28),
+  fontWeight: FontWeight.normal,
+  color: originalBlueColor,
   height: getProportionateScreenHeight(1.5),
   letterSpacing: getProportionateScreenWidth(2),
 );
