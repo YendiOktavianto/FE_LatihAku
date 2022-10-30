@@ -7,6 +7,8 @@ Widget formTextField(
     double height,
     TextEditingController controller,
     String Function(String) validatorForm,
+      Icon prefix,
+      Icon suffix,
     TextInputType textType}) {
   textLabel == null ? textLabel = "Enter Title" : textLabel;
   textHint == null ? textHint = "Enter Hint" : textHint;
@@ -22,6 +24,8 @@ Widget formTextField(
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.all(12),
         //contentPadding: EdgeInsets.only(),
+        prefix: prefix,
+        suffix: suffix,
         labelText: textLabel,
         labelStyle: const TextStyle(color: Colors.green),
         hintText: textHint,

@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 
 
 class ShoopingDetail extends StatefulWidget {
-  final List mulImg;
+  final List<String> mulImg;
   const ShoopingDetail({Key key, this.mulImg}) : super(key: key);
 
   @override
