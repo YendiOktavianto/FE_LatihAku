@@ -89,7 +89,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           InkWell(
                             onTap: () {
                               if (_currentPage == (onboardingData.length - 1)) {
-                                changeScreenReplacement(context, LoginPage());
+                                changeScreenReplacement(context, const LoginPage());
                               } else {
                                 _controller.nextPage(
                                     duration: const Duration(milliseconds: 800),

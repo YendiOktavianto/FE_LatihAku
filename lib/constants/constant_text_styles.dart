@@ -66,13 +66,9 @@ final robotoCondensedBlackBold = TextStyle(
   letterSpacing: getProportionateScreenWidth(2),
 );
 
-final robotoCondensedBrownSmall = TextStyle(
+const robotoCondensedBrownForm = TextStyle(
   fontFamily: 'RobotoCondensed',
-  fontSize: getProportionateScreenWidth(5),
-  fontWeight: FontWeight.normal,
   color: orginalBrownColor,
-  height: getProportionateScreenHeight(1.5),
-  letterSpacing: getProportionateScreenWidth(2),
 );
 
 final ubuntuBlackBold = TextStyle(

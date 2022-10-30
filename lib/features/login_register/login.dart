@@ -74,6 +74,8 @@ class _LoginPageState extends State<LoginPage> {
                             textType: TextInputType.name,
                             textLabel: "Username",
                             textHint: "Enter your Username",
+                              focusedColor: lightBrownColor,
+                              enabledColor: darkBrownColor
                           ),
                           SizedBox(height: getProportionateScreenHeight(30)),
                           formTextField(
@@ -85,11 +87,11 @@ class _LoginPageState extends State<LoginPage> {
                               }
                               return null;
                             },
-                            prefix: const Icon(Icons.password_rounded),
+                            prefix: const Icon(Icons.key),
                             textType: TextInputType.visiblePassword,
                             textLabel: "Password",
                             textHint: "Enter your Password",
-                            labelStyleForm: robotoCondensedBrownSmall,
+                            labelStyleForm: robotoCondensedBrownForm,
                             focusedColor: lightBrownColor,
                             enabledColor: darkBrownColor
                           ),
