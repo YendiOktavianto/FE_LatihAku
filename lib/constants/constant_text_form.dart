@@ -24,8 +24,9 @@ Widget formTextField(
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.all(12),
         //contentPadding: EdgeInsets.only(),
-        prefix: prefix,
-        suffix: suffix,
+
+        prefixIcon: prefix,
+        suffixIcon: suffix,
         labelText: textLabel,
         labelStyle: const TextStyle(color: Colors.green),
         hintText: textHint,

@@ -69,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                               }
                               return null;
                             },
-                            suffix: Icon(Icons.remove_red_eye),
+                            prefix: Icon(Icons.person_rounded),
                             textType: TextInputType.phone,
                             textLabel: "Nomor HP",
                             textHint: "Masukkan Nomor HP Anda",
