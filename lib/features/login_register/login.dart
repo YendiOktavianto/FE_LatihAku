@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      'Signin into your account',
+                      'Sign in into your account',
                       style: TextStyle(color: Colors.grey),
                     ),
                     SizedBox(height: getProportionateScreenHeight(30)),
@@ -105,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                                           ForgotPasswordPage()),
                                 );
                               },
-                              child: Text(
+                              child: const Text(
                                 "Forgot your password?",
                                 style: TextStyle(
                                   color: Colors.grey,
