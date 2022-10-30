@@ -24,7 +24,7 @@ class OnboardingContent extends StatelessWidget {
           height: getProportionateScreenHeight(350),
           width: getProportionateScreenWidth(400),
         ),
-        Spacer(flex: 2),
+        const Spacer(flex: 2),
         Text(
           head,
           textAlign: TextAlign.center,
@@ -37,7 +37,7 @@ class OnboardingContent extends StatelessWidget {
           text,
           textAlign: TextAlign.center,
           style: TextStyle(
-              color: bodyColor,
+              color: greyColor,
               fontSize: getProportionateScreenWidth(18),
               wordSpacing: 2.0,
               letterSpacing: 2.0,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+
 const kPrimaryColor = Color(0xFFF27E63);
 const kPrimaryLightColor = Color(0xFFFFECDF);
 const kPrimaryGradientColor = LinearGradient(
@@ -11,9 +12,8 @@ const kSecondaryColor = Color(0xFF979797);
 const kTextColor = Color(0xFF757575);
 const newColor = Color(0xff3C8590);
 
-
-const headColor = Color(0xFF2b2b2b);
-const bodyColor = Color(0xFFacacac);
+const blackColor = Color(0xFF2b2b2b);
+const greyColor = Color(0xFFacacac);
 const rightButton = Color(0xFFffb1b0);
 const dotColor = Color(0xFFffb1b0);
 const notDotColor = Color(0xFFd9d9d9);

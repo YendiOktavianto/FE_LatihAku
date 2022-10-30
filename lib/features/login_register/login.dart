@@ -1,5 +1,4 @@
 //@dart=2.9
-
 import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/constants/constant_button.dart';
 import 'package:fe_latihaku/constants/constant_text_form.dart';
@@ -61,12 +60,12 @@ class _LoginPageState extends State<LoginPage> {
                       key: _formKey,
                       child: Column(
                         children: [
-                          FormTextField(
+                          formTextField(
                             validatorForm: (value) {
                               if (value.isEmpty) {
-                                return "The password field cannot be empty";//showSnackBar("The password field cannot be empty", _key);
+                                return "The password field cannot be empty"; //showSnackBar("The password field cannot be empty", _key);
                               } else if (value.length < 6) {
-                                return "The password has to be at least 6 characters long";//showSnackBar("The password has to be at least 6 characters long", _key);
+                                return "The password has to be at least 6 characters long"; //showSnackBar("The password has to be at least 6 characters long", _key);
                               }
                               return null;
                             },
@@ -76,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                             //controller: nomorHpController,
                           ),
                           SizedBox(height: getProportionateScreenHeight(30)),
-                          MultilineFormTextField(
+                          multilineFormTextField(
                               textType: TextInputType.multiline,
                               textLabel: "Alamat",
                               textHint: "Masukkan Alamat Anda",
@@ -94,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           SizedBox(height: getProportionateScreenHeight(15)),
                           Container(
-                            margin: EdgeInsets.fromLTRB(10, 0, 10, 20),
+                            margin: const EdgeInsets.fromLTRB(10, 0, 10, 20),
                             alignment: Alignment.topRight,
                             child: GestureDetector(
                               onTap: () {
@@ -118,10 +117,15 @@ class _LoginPageState extends State<LoginPage> {
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(30),
                                   ),
-                                  side: BorderSide(color: Colors.purple, width: getProportionateScreenWidth(3))),
+                                  side: BorderSide(
+                                      color: Colors.purple,
+                                      width: getProportionateScreenWidth(3))),
                               childx: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text("Login", style: ubuntuBlackBold,),
+                                child: Text(
+                                  "Login",
+                                  style: ubuntuBlackBold,
+                                ),
                               ),
                               onPressedx: () {
                                 changeScreen(context, BottomNavbar());
@@ -149,11 +153,11 @@ class _LoginPageState extends State<LoginPage> {
                           //   ),
                           // ),
                           Container(
-                            margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
+                            margin: const EdgeInsets.fromLTRB(10, 20, 10, 20),
                             child: Text.rich(
                               TextSpan(
                                 children: [
-                                  TextSpan(text: "Don\'t have an account? "),
+                                  const TextSpan(text: "Don\'t have an account? "),
                                   TextSpan(
                                     text: 'Create',
                                     recognizer: TapGestureRecognizer()

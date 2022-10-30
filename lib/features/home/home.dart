@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
         Container(
           // Here the height of the container is 45% of our total height
           height: getProportionateScreenHeight(365),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color(0xFFF5CEB8),
             image: DecorationImage(
               alignment: Alignment.centerLeft,
@@ -38,17 +38,14 @@ class _HomeState extends State<Home> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-
-
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 80.0 ),
+                  padding: const EdgeInsets.only(bottom: 80.0),
                   child: Text(
                     "Good Morning, \nShishir",
                     style: //headingStyle
-                    Theme.of(context)
-                        .textTheme
-                        .displayMedium
-                        .copyWith(fontWeight: FontWeight.w900, fontSize: getProportionateScreenWidth(50)),
+                        Theme.of(context).textTheme.displayMedium.copyWith(
+                            fontWeight: FontWeight.w900,
+                            fontSize: getProportionateScreenWidth(50)),
                   ),
                 ),
                 // SearchBar(),
@@ -63,7 +60,7 @@ class _HomeState extends State<Home> {
                         title: "Find Coach",
                         svgSrc: "assets/Hamburger.svg",
                         press: () {
-                          changeScreen(context, Coach());
+                          changeScreen(context, const Coach());
                         },
                       ),
                       CategoryCard(
@@ -78,7 +75,7 @@ class _HomeState extends State<Home> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) {
-                              return Booking();
+                              return const Booking();
                               // return DetailsScreen();
                             }),
                           );

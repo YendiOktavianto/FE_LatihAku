@@ -24,7 +24,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     });
   }
 
-  PageController _controller = PageController();
+  final PageController _controller = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +82,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         children: [
                           Text(
                             'Skip',
-                            style: TextStyle(color: bodyColor, fontSize: getProportionateScreenWidth(16)),
+                            style: TextStyle(
+                                color: greyColor,
+                                fontSize: getProportionateScreenWidth(16)),
                           ),
                           InkWell(
                             onTap: () {
@@ -90,13 +92,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 changeScreenReplacement(context, LoginPage());
                               } else {
                                 _controller.nextPage(
-                                    duration: Duration(milliseconds: 800),
+                                    duration: const Duration(milliseconds: 800),
                                     curve: Curves.easeInOutQuint);
                               }
                             },
                             child: Container(
                               height: getProportionateScreenHeight(50),
-                              width: (_currentPage == (onboardingData.length - 1))
+                              width:
+                                  (_currentPage == (onboardingData.length - 1))
                                       ? 200
                                       : 50,
                               decoration: BoxDecoration(
@@ -107,26 +110,27 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                     color: rightButton.withOpacity(0.3),
                                     spreadRadius: 5,
                                     blurRadius: 7,
-                                    offset: Offset(
+                                    offset: const Offset(
                                         0, 3), // changes position of shadow
                                   ),
                                 ],
                               ),
-                              child:
-                                  (_currentPage == (onboardingData.length - 1))
-                                      ? Center(
-                                          child: Text(
-                                            "Get Started",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: getProportionateScreenWidth(20),
-                                            ),
-                                          ),
-                                        )
-                                      : Icon(
-                                          Icons.arrow_forward_ios,
+                              child: (_currentPage ==
+                                      (onboardingData.length - 1))
+                                  ? Center(
+                                      child: Text(
+                                        "Get Started",
+                                        style: TextStyle(
                                           color: Colors.white,
+                                          fontSize:
+                                              getProportionateScreenWidth(20),
                                         ),
+                                      ),
+                                    )
+                                  : const Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Colors.white,
+                                    ),
                             ),
                           ),
                         ],
