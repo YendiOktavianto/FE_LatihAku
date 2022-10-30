@@ -38,6 +38,24 @@ final arvoBlueRegular = TextStyle(
   letterSpacing: getProportionateScreenWidth(2),
 );
 
+final arvoBrownBold = TextStyle(
+  fontFamily: 'Arvo',
+  fontSize: getProportionateScreenWidth(28),
+  fontWeight: FontWeight.bold,
+  color: orginalBrownColor,
+  height: getProportionateScreenHeight(1.5),
+  letterSpacing: getProportionateScreenWidth(2),
+);
+
+final arvoBrownRegular = TextStyle(
+  fontFamily: 'Arvo',
+  fontSize: getProportionateScreenWidth(28),
+  fontWeight: FontWeight.normal,
+  color: orginalBrownColor,
+  height: getProportionateScreenHeight(1.5),
+  letterSpacing: getProportionateScreenWidth(2),
+);
+
 final robotoCondensedBlackBold = TextStyle(
   fontFamily: 'RobotoCondensed',
   fontSize: getProportionateScreenWidth(28),
