@@ -1,6 +1,7 @@
 //@dart=2.9
 import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/constants/constant_button.dart';
+import 'package:fe_latihaku/constants/constant_colors.dart';
 import 'package:fe_latihaku/constants/constant_text_form.dart';
 import 'package:fe_latihaku/constants/constant_text_styles.dart';
 
@@ -63,35 +64,44 @@ class _LoginPageState extends State<LoginPage> {
                           formTextField(
                             validatorForm: (value) {
                               if (value.isEmpty) {
-                                return "The password field cannot be empty"; //showSnackBar("The password field cannot be empty", _key);
-                              } else if (value.length < 6) {
-                                return "The password has to be at least 6 characters long"; //showSnackBar("The password has to be at least 6 characters long", _key);
+                                return "The Username field cannot be empty";
+                              } else if (value.length < 3) {
+                                return "The Username has to be at least 3 characters long";
                               }
                               return null;
                             },
-                            prefix: Icon(Icons.person_rounded),
-                            textType: TextInputType.phone,
-                            textLabel: "Nomor HP",
-                            textHint: "Masukkan Nomor HP Anda",
-                            //controller: nomorHpController,
+                            prefix: const Icon(Icons.person_rounded),
+                            textType: TextInputType.name,
+                            textLabel: "Username",
+                            textHint: "Enter your Username",
                           ),
                           SizedBox(height: getProportionateScreenHeight(30)),
-                          multilineFormTextField(
-                              textType: TextInputType.multiline,
-                              textLabel: "Alamat",
-                              textHint: "Masukkan Alamat Anda",
-                              //controller: alamatController,
-                              height: getProportionateScreenHeight(20)),
-                          SizedBox(height: getProportionateScreenHeight(30)),
-                          Container(
-                            child: TextField(
-                              obscureText: true,
-                              decoration: ThemeHelper().textInputDecoration(
-                                  'Password', 'Enter your password'),
-                            ),
-                            decoration:
-                                ThemeHelper().inputBoxDecorationShaddow(),
+                          formTextField(
+                            validatorForm: (value) {
+                              if (value.isEmpty) {
+                                return "The password field cannot be empty";
+                              } else if (value.length < 8) {
+                                return "The password has to be at least 8 characters long";
+                              }
+                              return null;
+                            },
+                            prefix: const Icon(Icons.password_rounded),
+                            textType: TextInputType.visiblePassword,
+                            textLabel: "Password",
+                            textHint: "Enter your Password",
+                            labelStyleForm: robotoCondensedBrownSmall,
+                            focusedColor: lightBrownColor,
+                            enabledColor: darkBrownColor
                           ),
+                          // Container(
+                          //   child: FieldText(
+                          //     obscureText: true,
+                          //     decoration: ThemeHelper().textInputDecoration(
+                          //         'Password', 'Enter your password'),
+                          //   ),
+                          //   decoration:
+                          //       ThemeHelper().inputBoxDecorationShaddow(),
+                          // ),
                           SizedBox(height: getProportionateScreenHeight(15)),
                           Container(
                             margin: const EdgeInsets.fromLTRB(10, 0, 10, 20),
@@ -158,7 +168,8 @@ class _LoginPageState extends State<LoginPage> {
                             child: Text.rich(
                               TextSpan(
                                 children: [
-                                  const TextSpan(text: "Don\'t have an account? "),
+                                  const TextSpan(
+                                      text: "Don\'t have an account? "),
                                   TextSpan(
                                     text: 'Create',
                                     recognizer: TapGestureRecognizer()

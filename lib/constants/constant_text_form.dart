@@ -7,9 +7,12 @@ Widget formTextField(
     double height,
     TextEditingController controller,
     String Function(String) validatorForm,
-      Icon prefix,
-      Icon suffix,
-    TextInputType textType}) {
+    Icon prefix,
+    Icon suffix,
+    TextStyle labelStyleForm,
+    TextInputType textType,
+    Color focusedColor,
+    Color enabledColor}) {
   textLabel == null ? textLabel = "Enter Title" : textLabel;
   textHint == null ? textHint = "Enter Hint" : textHint;
   height == null ? height = 50.0 : height;
@@ -28,18 +31,18 @@ Widget formTextField(
         prefixIcon: prefix,
         suffixIcon: suffix,
         labelText: textLabel,
-        labelStyle: const TextStyle(color: Colors.green),
+        labelStyle: labelStyleForm,
         hintText: textHint,
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
-          borderSide: const BorderSide(
-            color: Colors.green,
+          borderSide: BorderSide(
+            color: focusedColor,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
-          borderSide: const BorderSide(
-            color: Colors.blue,
+          borderSide: BorderSide(
+            color: enabledColor,
             width: 2.0,
           ),
         ),
@@ -169,7 +172,8 @@ Widget multilineFormTextField(
       maxLines: 5,
       minLines: 1,
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(vertical: 35.0, horizontal: 10.0),
+        contentPadding:
+            const EdgeInsets.symmetric(vertical: 35.0, horizontal: 10.0),
         //contentPadding: EdgeInsets.only(),
         labelText: textLabel,
         labelStyle: const TextStyle(color: Colors.green),
