@@ -13,6 +13,7 @@ Widget formTextField(
   textLabel == null ? textLabel = "Enter Title" : textLabel;
   textHint == null ? textHint = "Enter Hint" : textHint;
   height == null ? height = 50.0 : height;
+  textType == null ? TextInputType.text : textType;
   //height !=null
 
   return Padding(
@@ -20,11 +21,9 @@ Widget formTextField(
     child: TextFormField(
       validator: validatorForm,
       controller: controller,
-      keyboardType: textType == null ? TextInputType.text : textType,
+      keyboardType: textType,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.all(12),
-        //contentPadding: EdgeInsets.only(),
-
         prefixIcon: prefix,
         suffixIcon: suffix,
         labelText: textLabel,

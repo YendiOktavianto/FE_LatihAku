@@ -3,6 +3,7 @@ import 'package:fe_latihaku/constants/constant_colors.dart';
 import 'package:fe_latihaku/constants/constant_sizes.dart';
 import 'package:fe_latihaku/features/booking/booking_detail.dart';
 import 'package:fe_latihaku/models/booking_modeltesting.dart';
+import 'package:fe_latihaku/models/coach_modeltesting.dart';
 import 'package:fe_latihaku/utils/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,7 @@ class _BookingCardState extends State<BookingCard> {
       padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
       child: GridView.builder(
         itemCount: products.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisSpacing: kDefaultPaddin,
           crossAxisSpacing: kDefaultPaddin,
@@ -30,7 +31,7 @@ class _BookingCardState extends State<BookingCard> {
         ),
 
         itemBuilder: (context, index) => GestureDetector(
-          onTap: (){ changeScreen(context, const ShoopingDetail());},
+          onTap: (){ changeScreen(context, ProductDetailsView());},
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[

@@ -1,101 +1,210 @@
-//@dart=2.9
-import 'package:animate_do/animate_do.dart';
-import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/constants/constant_colors.dart';
-import 'package:fe_latihaku/features/booking/booking_image.dart';
-import 'package:fe_latihaku/utils/button.dart';
-import 'package:fe_latihaku/utils/title_price_rating.dart';
+import 'package:fe_latihaku/constants/constant_text_styles.dart';
+import 'package:fe_latihaku/models/booking_place.dart';
 import 'package:flutter/material.dart';
 
+class ProductDetailsView extends StatelessWidget {
+  ProductDetailsView({Key? key}) : super(key: key);
+  //final ProductController productController = Get.put(ProductController());
 
-
-
-
-
-class ShoopingDetail extends StatefulWidget {
-  final List<String> mulImg;
-  const ShoopingDetail({Key key, this.mulImg}) : super(key: key);
-
-  @override
-  _ShoopingDetailState createState() => _ShoopingDetailState();
-}
-
-class _ShoopingDetailState extends State<ShoopingDetail> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        FadeInDown(
-          child: ProductSlider(
-            items: widget.mulImg,
-          ),
-        ),
-        Expanded(
-          child: ItemInfo(),
-        ),
-      ],
-    );
-  }
-}
-
-
-
-
-class ItemInfo extends StatelessWidget {
-  const ItemInfo({
-    Key key,
-  }) : super(key: key);
+  final List<SmProduct> smProducts = [
+    SmProduct(image: 'assets/images/product-1.png'),
+    SmProduct(image: 'assets/images/product-2.png'),
+    SmProduct(image: 'assets/images/product-3.png'),
+    SmProduct(image: 'assets/images/product-4.png'),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      padding: EdgeInsets.all(20),
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
-        ),
-      ),
-      child: Column(
-        children: <Widget>[
-          shopeName(name: "MacDonalds"),
-          TitlePriceRating(
-            name: "Cheese Burger",
-            numOfReviews: 24,
-            rating: 4,
-            price: 15,
-            onRatingChanged: (value) {},
+    return Scaffold(
+      backgroundColor: lightOrangeColor,
+      appBar: AppBar(
+        backgroundColor: lightOrangeColor,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
           ),
-          Text(
-            "Nowadays, making printed materials have become fast, easy and simple. If you want your promotional material to be an eye-catching object, you should make it colored. By way of using inkjet printer this is not hard to make. An inkjet printer is any printer that places extremely small droplets of ink onto paper to create an image.",
-            style: TextStyle(
-              height: getProportionateScreenHeight(1.5),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.shopping_bag_outlined,
+              color: Colors.black,
             ),
           ),
-          SizedBox(height: getProportionateScreenHeight(81.2)),
-          // Free space  10% of total height
-          OrderButton(
-            size: size,
-            press: () {},
-          )
         ],
       ),
-    );
-  }
-
-  Row shopeName({String name}) {
-    return Row(
-      children: <Widget>[
-        Icon(
-          Icons.location_on,
-          color: kSecondaryColor,
+      body: Column(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * .35,
+            padding: const EdgeInsets.only(bottom: 30),
+            width: double.infinity,
+            child: Image.asset('assets/images/main_image.png'),
+          ),
+          Expanded(
+            child: Stack(
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(top: 40, right: 14, left: 14),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Chanel',
+                          // style: GoogleFonts.poppins(
+                          //   fontSize: 15,
+                          //   color: Colors.grey,
+                          // ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Product Name',
+                              // style: GoogleFonts.poppins(
+                              //   fontSize: 22,
+                              //   fontWeight: FontWeight.w600,
+                              // ),
+                            ),
+                            Text(
+                              '\$135.00',
+                              style: arvoOrangeBold
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+                        Text(
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor consectetur tortor vitae interdum.',
+                          // style: GoogleFonts.poppins(
+                          //   fontSize: 15,
+                          //   color: Colors.grey,
+                          // ),
+                        ),
+                        const SizedBox(height: 15),
+                        Text(
+                          'Similar This',
+                          // style: GoogleFonts.poppins(
+                          //   fontSize: 16,
+                          //   fontWeight: FontWeight.w600,
+                          // ),
+                        ),
+                        const SizedBox(height: 10),
+                        SizedBox(
+                          height: 110,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: smProducts.length,
+                            itemBuilder: (context, index) => Container(
+                              margin: const EdgeInsets.only(right: 6),
+                              width: 110,
+                              height: 110,
+                              decoration: BoxDecoration(
+                                color: lightBlueColor,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Center(
+                                child: Image(
+                                  height: 70,
+                                  image: AssetImage(smProducts[index].image),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                      ],
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 10),
+                    width: 50,
+                    height: 5,
+                    decoration: BoxDecoration(
+                      color: greyColor,
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: Container(
+        height: 70,
+        color: Colors.white,
+        padding: EdgeInsets.all(10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              width: 50,
+              height: 50,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: greyColor),
+              ),
+              child: Icon(
+                Icons.favorite,
+                size: 30,
+                color: Colors.grey,
+              ),
+            ),
+            SizedBox(width: 20),
+            Expanded(
+              child: InkWell(
+                onTap: () {
+                  //productController.addToCart();
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child
+                    //   : Obx(
+                    // () => productController.isAddLoading.value
+                    //     ? SizedBox(
+                    //         width: 20,
+                    //         height: 20,
+                    //         child: CircularProgressIndicator(
+                    //           color: Colors.white,
+                    //           strokeWidth: 3,
+                    //         ),
+                    //       )
+                        : Text(
+                            '+ Add to Cart',
+                            // style: GoogleFonts.poppins(
+                            //   fontSize: 15,
+                            //   fontWeight: FontWeight.w500,
+                            //   color: Colors.white,
+                            // ),
+                          ),
+                  ),
+                ),
+              ),
+           // ),
+          ],
         ),
-        SizedBox(width: getProportionateScreenWidth(10)),
-        Text(name),
-      ],
+      ),
     );
   }
 }
