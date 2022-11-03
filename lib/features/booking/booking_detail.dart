@@ -72,7 +72,7 @@ class ProductDetailsView extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               'Product Name',
                               // style: GoogleFonts.poppins(
                               //   fontSize: 22,

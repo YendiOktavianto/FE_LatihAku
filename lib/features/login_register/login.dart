@@ -74,27 +74,27 @@ class _LoginPageState extends State<LoginPage> {
                             textType: TextInputType.name,
                             textLabel: "Username",
                             textHint: "Enter your Username",
-                              focusedColor: lightBrownColor,
-                              enabledColor: darkBrownColor
+                            labelStyleForm: robotoCondensedBrownForm,
+                            focusedColor: lightBrownColor,
+                            enabledColor: darkBrownColor,
                           ),
                           SizedBox(height: getProportionateScreenHeight(30)),
                           formTextField(
-                            validatorForm: (value) {
-                              if (value.isEmpty) {
-                                return "The password field cannot be empty";
-                              } else if (value.length < 8) {
-                                return "The password has to be at least 8 characters long";
-                              }
-                              return null;
-                            },
-                            prefix: const Icon(Icons.key),
-                            textType: TextInputType.visiblePassword,
-                            textLabel: "Password",
-                            textHint: "Enter your Password",
-                            labelStyleForm: robotoCondensedBrownForm,
-                            focusedColor: lightBrownColor,
-                            enabledColor: darkBrownColor
-                          ),
+                              validatorForm: (value) {
+                                if (value.isEmpty) {
+                                  return "The password field cannot be empty";
+                                } else if (value.length < 8) {
+                                  return "The password has to be at least 8 characters long";
+                                }
+                                return null;
+                              },
+                              prefix: const Icon(Icons.key),
+                              textType: TextInputType.visiblePassword,
+                              textLabel: "Password",
+                              textHint: "Enter your Password",
+                              labelStyleForm: robotoCondensedBrownForm,
+                              focusedColor: lightBrownColor,
+                              enabledColor: darkBrownColor),
                           // Container(
                           //   child: FieldText(
                           //     obscureText: true,
