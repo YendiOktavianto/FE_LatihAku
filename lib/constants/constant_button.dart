@@ -20,7 +20,6 @@ Widget ElevatedBtnApp(
   return ElevatedButton(
       key: keyx,
       style: ButtonStyle(
-        textStyle: MaterialStateTextStyle.resolveWith((states) => robotoCondensedLightBrownButton),
         foregroundColor: MaterialStateProperty.resolveWith<Color>(
           // text color
           (Set<MaterialState> states) => states.contains(MaterialState.disabled)

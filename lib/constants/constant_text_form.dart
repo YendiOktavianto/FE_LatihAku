@@ -7,17 +7,17 @@ Widget formTextField(
     double height,
     TextEditingController controller,
     String Function(String) validatorForm,
-    Icon prefix,
-    GestureDetector suffix,
+    Widget prefix,
+    Widget suffix,
     TextStyle labelStyleForm,
     TextInputType textType,
     Color focusedColor,
     Color enabledColor,
     bool obscureText}) {
-  textLabel == null ? textLabel = "Enter Title" : textLabel;
-  textHint == null ? textHint = "Enter Hint" : textHint;
-  height == null ? height = 50.0 : height;
-  textType == null ? TextInputType.text : textType;
+  textLabel ?? (textLabel = "Enter Title");
+  textHint ?? (textHint = "Enter Hint");
+  height ?? (height = 50.0);
+  textType ?? TextInputType.text;
   obscureText == null ? obscureText = true : false;
   //height !=null
 

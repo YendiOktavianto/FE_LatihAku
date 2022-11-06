@@ -35,15 +35,15 @@ class _LoginPageState extends State<LoginPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: getProportionateScreenHeight(250),
               child: HeaderWidget(getProportionateScreenHeight(250), true,
                   Icons.login_rounded), //let's create a common header widget
             ),
             SafeArea(
               child: Container(
-                padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                 // This will be the login form
                 child: Column(
                   children: [
@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                       style: ArvoDarkBrown,
                     ),
                     SizedBox(height: getProportionateScreenHeight(10)),
-                    Text(
+                    const Text(
                       'Hello, Enter your details to get sign to your account',
                       style: TextStyle(color: Colors.grey),
                     ),
@@ -96,7 +96,9 @@ class _LoginPageState extends State<LoginPage> {
                                     obscureText = !obscureText;
                                   });
                                 },
-                                child: Icon(obscureText ? Icons.visibility_off : Icons.visibility),
+                                child: Icon(obscureText
+                                    ? Icons.visibility_off
+                                    : Icons.visibility),
                               ),
                               textType: TextInputType.visiblePassword,
                               textLabel: "Password",
@@ -119,12 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                             alignment: Alignment.topRight,
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          ForgotPasswordPage()),
-                                );
+                                changeScreen(context, ForgotPasswordPage());
                               },
                               child: const Text(
                                 "Forgot your password?",
@@ -134,24 +131,31 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
-                          ElevatedBtnApp(
-                              shapex: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(30),
-                                  ),
-                                  side: BorderSide(
-                                      color: Colors.purple,
-                                      width: getProportionateScreenWidth(3))),
-                              childx: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "Login",
-                                  style: ubuntuBlackBold,
+
+                          SizedBox(
+                            width: getProportionateScreenWidth(300),
+                            height: getProportionateScreenHeight(50),
+                            child: ElevatedBtnApp(
+                                shapex: const RoundedRectangleBorder(
+                                    borderRadius:  BorderRadius.all(
+                                      Radius.circular(25),
+                                    ),
                                 ),
-                              ),
-                              onPressedx: () {
-                                changeScreen(context, BottomNavbar());
-                              }),
+                                colorx: darkBrownColor,
+                                childx:
+                                // Padding(
+                                //   padding: const EdgeInsets.only(
+                                //       left: 125, right: 125, top: 15, bottom: 15),
+                                //   child: 
+                                  Text(
+                                    "Login",
+                                    style: robotoCondensedLightBrownButton,
+                                  ),
+                                // ),
+                                onPressedx: () {
+                                  changeScreen(context, BottomNavbar());
+                                }),
+                          ),
                           // Container(
                           //   decoration:
                           //       ThemeHelper().buttonBoxDecoration(context),
