@@ -7,21 +7,82 @@ Widget formTextField(
     double height,
     TextEditingController controller,
     String Function(String) validatorForm,
-    Icon prefix,
-    Icon suffix,
+    Widget prefix,
+    Widget suffix,
     TextStyle labelStyleForm,
     TextInputType textType,
     Color focusedColor,
-    Color enabledColor}) {
-  textLabel == null ? textLabel = "Enter Title" : textLabel;
-  textHint == null ? textHint = "Enter Hint" : textHint;
-  height == null ? height = 50.0 : height;
-  textType == null ? TextInputType.text : textType;
+    Color enabledColor,
+    bool obscureText}) {
+  textLabel ?? (textLabel = "Enter Title");
+  textHint ?? (textHint = "Enter Hint");
+  height ?? (height = 50.0);
+  textType ?? TextInputType.text;
+  obscureText == null ? obscureText = true : false;
   //height !=null
 
   return Padding(
     padding: const EdgeInsets.only(left: 0, right: 0),
     child: TextFormField(
+      obscureText: obscureText,
+      validator: validatorForm,
+      controller: controller,
+      keyboardType: textType,
+      decoration: InputDecoration(
+        contentPadding: const EdgeInsets.all(12),
+        prefixIcon: prefix,
+        suffixIcon: suffix,
+        labelText: textLabel,
+        labelStyle: labelStyleForm,
+        hintText: textHint,
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide(
+            color: focusedColor,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide(
+            color: enabledColor,
+            width: 2.0,
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+Widget formPasswordField(
+    {String textLabel,
+    String textHint,
+    double height,
+    TextEditingController controller,
+    FormFieldValidator<String> validatorForm,
+    Icon prefix,
+    Icon suffix,
+    TextStyle labelStyleForm,
+    TextInputType textType,
+    Color focusedColor,
+    Color enabledColor,
+    bool obscureTextPassword,
+    String textHelper,
+    FormFieldSetter<String> onSaved,
+    ValueChanged<String> onFieldSubmitted}) {
+  textLabel ?? (textLabel = "Enter Title");
+  textHint ?? (textHint = "Enter Hint");
+  height ?? (height = 50.0);
+  textType ?? TextInputType.text;
+
+  //height !=null
+
+  return Padding(
+    padding: const EdgeInsets.only(left: 0, right: 0),
+    child: TextFormField(
+      obscureText: obscureTextPassword,
+      maxLength: 8,
+      onSaved: onSaved,
+      onFieldSubmitted: onFieldSubmitted,
       validator: validatorForm,
       controller: controller,
       keyboardType: textType,

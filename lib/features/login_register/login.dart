@@ -26,6 +26,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController userNameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   Key _formKey = GlobalKey<FormState>();
+  bool obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -34,27 +35,26 @@ class _LoginPageState extends State<LoginPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: getProportionateScreenHeight(250),
               child: HeaderWidget(getProportionateScreenHeight(250), true,
                   Icons.login_rounded), //let's create a common header widget
             ),
             SafeArea(
               child: Container(
-                padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                 // This will be the login form
                 child: Column(
                   children: [
                     Text(
-                      'Hello',
-                      style: TextStyle(
-                          fontSize: getProportionateScreenWidth(60),
-                          fontWeight: FontWeight.bold),
+                      'Login',
+                      style: arvoDarkOrangeAccent,
                     ),
+                    SizedBox(height: getProportionateScreenHeight(15)),
                     Text(
-                      'Sign in into your account',
-                      style: TextStyle(color: Colors.grey),
+                      'Hello, Enter your details to get sign to your account',
+                      style: robotoCondensedDarkOrange,
                     ),
                     SizedBox(height: getProportionateScreenHeight(30)),
                     Form(
@@ -70,31 +70,42 @@ class _LoginPageState extends State<LoginPage> {
                               }
                               return null;
                             },
-                            prefix: const Icon(Icons.person_rounded),
+                            prefix: const Icon(Icons.person_rounded, color: darkOrangeColor),
                             textType: TextInputType.name,
-                            textLabel: "Username",
-                            textHint: "Enter your Username",
-                              focusedColor: lightBrownColor,
-                              enabledColor: darkBrownColor
+                            textLabel: "Username / Email",
+                            textHint: "Enter your Username / Email",
+                            labelStyleForm: robotoCondensedDarkOrange,
+                            focusedColor: darkOrangeColor,
+                            enabledColor: darkOrangeColor,
                           ),
                           SizedBox(height: getProportionateScreenHeight(30)),
                           formTextField(
-                            validatorForm: (value) {
-                              if (value.isEmpty) {
-                                return "The password field cannot be empty";
-                              } else if (value.length < 8) {
-                                return "The password has to be at least 8 characters long";
-                              }
-                              return null;
-                            },
-                            prefix: const Icon(Icons.key),
-                            textType: TextInputType.visiblePassword,
-                            textLabel: "Password",
-                            textHint: "Enter your Password",
-                            labelStyleForm: robotoCondensedBrownForm,
-                            focusedColor: lightBrownColor,
-                            enabledColor: darkBrownColor
-                          ),
+                              validatorForm: (value) {
+                                if (value.isEmpty) {
+                                  return "The password field cannot be empty";
+                                } else if (value.length < 8) {
+                                  return "The password has to be at least 8 characters long";
+                                }
+                                return null;
+                              },
+                              obscureText: obscureText,
+                              prefix: const Icon(Icons.key, color: darkOrangeColor),
+                              suffix: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    obscureText = !obscureText;
+                                  });
+                                },
+                                child: Icon(obscureText
+                                    ? Icons.visibility_off
+                                    : Icons.visibility , color: darkOrangeColor,),
+                              ),
+                              textType: TextInputType.visiblePassword,
+                              textLabel: "Password",
+                              textHint: "Enter your Password",
+                              labelStyleForm: robotoCondensedDarkOrange,
+                              focusedColor: darkOrangeColor,
+                              enabledColor: darkOrangeColor),
                           // Container(
                           //   child: FieldText(
                           //     obscureText: true,
@@ -110,39 +121,41 @@ class _LoginPageState extends State<LoginPage> {
                             alignment: Alignment.topRight,
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          ForgotPasswordPage()),
-                                );
+                                changeScreen(context, ForgotPasswordPage());
                               },
                               child: const Text(
                                 "Forgot your password?",
                                 style: TextStyle(
-                                  color: Colors.grey,
+                                  color: darkOrangeColor,
                                 ),
                               ),
                             ),
                           ),
-                          ElevatedBtnApp(
-                              shapex: RoundedRectangleBorder(
+
+                          SizedBox(
+                            width: getProportionateScreenWidth(300),
+                            height: getProportionateScreenHeight(50),
+                            child: ElevatedBtnApp(
+                                shapex: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.all(
-                                    Radius.circular(30),
+                                    Radius.circular(25),
                                   ),
-                                  side: BorderSide(
-                                      color: Colors.purple,
-                                      width: getProportionateScreenWidth(3))),
-                              childx: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "Login",
-                                  style: ubuntuBlackBold,
                                 ),
-                              ),
-                              onPressedx: () {
-                                changeScreen(context, BottomNavbar());
-                              }),
+                                colorx: lightOrangeColor,
+                                childx:
+                                    // Padding(
+                                    //   padding: const EdgeInsets.only(
+                                    //       left: 125, right: 125, top: 15, bottom: 15),
+                                    //   child:
+                                    Text(
+                                  "Login",
+                                  style: robotoCondensedDarkOrangeButton,
+                                ),
+                                // ),
+                                onPressedx: () {
+                                  changeScreen(context, BottomNavbar());
+                                }),
+                          ),
                           // Container(
                           //   decoration:
                           //       ThemeHelper().buttonBoxDecoration(context),
@@ -170,8 +183,8 @@ class _LoginPageState extends State<LoginPage> {
                             child: Text.rich(
                               TextSpan(
                                 children: [
-                                  const TextSpan(
-                                      text: "Don\'t have an account? "),
+                                   TextSpan(
+                                      text: "Don\'t have an account? ", style: robotoCondensedDarkOrange),
                                   TextSpan(
                                     text: 'Create',
                                     recognizer: TapGestureRecognizer()
@@ -180,11 +193,9 @@ class _LoginPageState extends State<LoginPage> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    RegistrationPage()));
+                                                    const RegistrationPage()));
                                       },
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Theme.of(context).accentColor),
+                                    style: robotoCondensedDarkOrangeBold,
                                   ),
                                 ],
                               ),

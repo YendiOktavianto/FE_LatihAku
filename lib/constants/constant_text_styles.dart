@@ -107,3 +107,42 @@ final ubuntuDarkBrownBold = TextStyle(
   letterSpacing: getProportionateScreenWidth(2),
 );
 
+// "Login"
+final arvoDarkOrangeAccent = TextStyle(
+  fontFamily: 'Arvo',
+  fontSize: getProportionateScreenWidth(40),
+  fontWeight: FontWeight.bold,
+  color: darkOrangeAccentColor,
+  height: getProportionateScreenHeight(1),
+  letterSpacing: getProportionateScreenWidth(2),
+
+);
+
+// Text Button for Login
+final robotoCondensedDarkOrangeButton = TextStyle(
+  fontFamily: 'RobotoCondensed',
+  fontSize: getProportionateScreenWidth(25),
+  fontWeight: FontWeight.bold,
+  color: darkOrangeColor,
+);
+
+final robotoCondensedDarkOrange = TextStyle(
+  fontFamily: 'Roboto Condensed',
+  fontSize: getProportionateScreenWidth(11),
+  fontWeight: FontWeight.normal,
+  color: darkOrangeColor,
+  height: getProportionateScreenHeight(1),
+  letterSpacing: getProportionateScreenWidth(1),
+);
+
+final robotoCondensedDarkOrangeBold = TextStyle(
+  fontFamily: 'Roboto Condensed',
+  fontSize: getProportionateScreenWidth(11),
+  fontWeight: FontWeight.bold,
+  color: darkOrangeColor,
+  height: getProportionateScreenHeight(1),
+  letterSpacing: getProportionateScreenWidth(1),
+);
+
+
+

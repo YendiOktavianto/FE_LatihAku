@@ -144,7 +144,9 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
+
                           'Product Name',
+
                           // style: GoogleFonts.poppins(
                           //   fontSize: 22,
                           //   fontWeight: FontWeight.w600,
@@ -244,7 +246,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                 child: Container(
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: Colors.green,
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child

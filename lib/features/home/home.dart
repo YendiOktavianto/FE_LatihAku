@@ -1,7 +1,7 @@
 //@dart=2.9
-import 'package:fe_latihaku/coach/coach.dart';
 import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/features/booking/booking.dart';
+import 'package:fe_latihaku/features/find_coach/coach.dart';
 import 'package:fe_latihaku/features/home/home_card.dart';
 import 'package:fe_latihaku/utils/routes.dart';
 import 'package:flutter/cupertino.dart';
