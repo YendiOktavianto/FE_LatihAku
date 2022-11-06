@@ -44,12 +44,14 @@ class ProductDetailsView extends StatelessWidget {
             height: MediaQuery.of(context).size.height * .35,
             padding: const EdgeInsets.only(bottom: 30),
             width: double.infinity,
-            child: Image.asset('assets/images/main_image.png'),
+            child: Image.asset('assets/product-1.png'),
           ),
           Expanded(
-            child: Stack(
-              children: [
+            child:
+            // Stack(
+            //   children: [
                 Container(
+                  height: 200,
                   padding: const EdgeInsets.only(top: 40, right: 14, left: 14),
                   decoration: const BoxDecoration(
                     color: Colors.white,
@@ -94,55 +96,55 @@ class ProductDetailsView extends StatelessWidget {
                           // ),
                         ),
                         const SizedBox(height: 15),
-                        Text(
-                          'Similar This',
-                          // style: GoogleFonts.poppins(
-                          //   fontSize: 16,
-                          //   fontWeight: FontWeight.w600,
-                          // ),
-                        ),
+                        // Text(
+                        //   'Similar This',
+                        //   // style: GoogleFonts.poppins(
+                        //   //   fontSize: 16,
+                        //   //   fontWeight: FontWeight.w600,
+                        //   // ),
+                        // ),
                         const SizedBox(height: 10),
-                        SizedBox(
-                          height: 110,
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: smProducts.length,
-                            itemBuilder: (context, index) => Container(
-                              margin: const EdgeInsets.only(right: 6),
-                              width: 110,
-                              height: 110,
-                              decoration: BoxDecoration(
-                                color: lightBlueColor,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Center(
-                                child: Image(
-                                  height: 70,
-                                  image: AssetImage(smProducts[index].image),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+                        // SizedBox(
+                        //   height: 110,
+                        //   child: ListView.builder(
+                        //     scrollDirection: Axis.horizontal,
+                        //     itemCount: smProducts.length,
+                        //     itemBuilder: (context, index) => Container(
+                        //       margin: const EdgeInsets.only(right: 6),
+                        //       width: 110,
+                        //       height: 110,
+                        //       decoration: BoxDecoration(
+                        //         color: lightBlueColor,
+                        //         borderRadius: BorderRadius.circular(20),
+                        //       ),
+                        //       child: Center(
+                        //         child: Image(
+                        //           height: 70,
+                        //           image: AssetImage(smProducts[index].image),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                         const SizedBox(height: 20),
                       ],
                     ),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Container(
-                    margin: const EdgeInsets.only(top: 10),
-                    width: 50,
-                    height: 5,
-                    decoration: BoxDecoration(
-                      color: greyColor,
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+                // Align(
+                //   alignment: Alignment.topCenter,
+                //   child: Container(
+                //     margin: const EdgeInsets.only(top: 10),
+                //     width: 50,
+                //     height: 5,
+                //     decoration: BoxDecoration(
+                //       color: greyColor,
+                //       borderRadius: BorderRadius.circular(50),
+                //     ),
+                //   ),
+                // ),
+            //   ],
+            // ),
           ),
         ],
       ),
