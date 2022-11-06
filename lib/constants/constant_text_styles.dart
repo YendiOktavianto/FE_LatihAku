@@ -107,3 +107,29 @@ final ubuntuDarkBrownBold = TextStyle(
   letterSpacing: getProportionateScreenWidth(2),
 );
 
+// "Login"
+final ArvoDarkBrown = TextStyle(
+  fontFamily: 'Arvo',
+  fontSize: getProportionateScreenWidth(40),
+  fontWeight: FontWeight.bold,
+  color: darkBrownColor,
+  height: getProportionateScreenHeight(1),
+  letterSpacing: getProportionateScreenWidth(2),
+  shadows: const [
+    Shadow(
+      color: orginalBrownColor,
+      blurRadius: 15
+    )
+  ]
+);
+
+// Text Button for Login
+final robotoCondensedLightBrownButton = TextStyle(
+  fontFamily: 'RobotoCondensed',
+  fontSize: getProportionateScreenWidth(20),
+  fontWeight: FontWeight.normal,
+  color: lightBrownColor,
+);
+
+
+

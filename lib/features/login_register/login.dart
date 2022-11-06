@@ -26,6 +26,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController userNameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   Key _formKey = GlobalKey<FormState>();
+  bool obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -47,13 +48,12 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     Text(
-                      'Hello',
-                      style: TextStyle(
-                          fontSize: getProportionateScreenWidth(60),
-                          fontWeight: FontWeight.bold),
+                      'Login',
+                      style: ArvoDarkBrown,
                     ),
+                    SizedBox(height: getProportionateScreenHeight(10)),
                     Text(
-                      'Sign in into your account',
+                      'Hello, Enter your details to get sign to your account',
                       style: TextStyle(color: Colors.grey),
                     ),
                     SizedBox(height: getProportionateScreenHeight(30)),
@@ -72,8 +72,8 @@ class _LoginPageState extends State<LoginPage> {
                             },
                             prefix: const Icon(Icons.person_rounded),
                             textType: TextInputType.name,
-                            textLabel: "Username",
-                            textHint: "Enter your Username",
+                            textLabel: "Username / Email",
+                            textHint: "Enter your Username / Email",
                             labelStyleForm: robotoCondensedBrownForm,
                             focusedColor: lightBrownColor,
                             enabledColor: darkBrownColor,
@@ -88,7 +88,16 @@ class _LoginPageState extends State<LoginPage> {
                                 }
                                 return null;
                               },
+                              obscureText: obscureText,
                               prefix: const Icon(Icons.key),
+                              suffix: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    obscureText = !obscureText;
+                                  });
+                                },
+                                child: Icon(obscureText ? Icons.visibility_off : Icons.visibility),
+                              ),
                               textType: TextInputType.visiblePassword,
                               textLabel: "Password",
                               textHint: "Enter your Password",
