@@ -69,10 +69,10 @@ Widget formPasswordField(
     String textHelper,
     FormFieldSetter<String> onSaved,
     ValueChanged<String> onFieldSubmitted}) {
-  textLabel == null ? textLabel = "Enter Title" : textLabel;
-  textHint == null ? textHint = "Enter Hint" : textHint;
-  height == null ? height = 50.0 : height;
-  textType == null ? TextInputType.text : textType;
+  textLabel ?? (textLabel = "Enter Title");
+  textHint ?? (textHint = "Enter Hint");
+  height ?? (height = 50.0);
+  textType ?? TextInputType.text;
 
   //height !=null
 

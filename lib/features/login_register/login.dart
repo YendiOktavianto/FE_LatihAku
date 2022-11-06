@@ -49,12 +49,12 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Text(
                       'Login',
-                      style: ArvoDarkBrown,
+                      style: arvoDarkOrangeAccent,
                     ),
-                    SizedBox(height: getProportionateScreenHeight(10)),
-                    const Text(
+                    SizedBox(height: getProportionateScreenHeight(15)),
+                    Text(
                       'Hello, Enter your details to get sign to your account',
-                      style: TextStyle(color: Colors.grey),
+                      style: robotoCondensedDarkOrange,
                     ),
                     SizedBox(height: getProportionateScreenHeight(30)),
                     Form(
@@ -70,13 +70,13 @@ class _LoginPageState extends State<LoginPage> {
                               }
                               return null;
                             },
-                            prefix: const Icon(Icons.person_rounded),
+                            prefix: const Icon(Icons.person_rounded, color: darkOrangeColor),
                             textType: TextInputType.name,
                             textLabel: "Username / Email",
                             textHint: "Enter your Username / Email",
-                            labelStyleForm: robotoCondensedBrownForm,
-                            focusedColor: lightBrownColor,
-                            enabledColor: darkBrownColor,
+                            labelStyleForm: robotoCondensedDarkOrange,
+                            focusedColor: darkOrangeColor,
+                            enabledColor: darkOrangeColor,
                           ),
                           SizedBox(height: getProportionateScreenHeight(30)),
                           formTextField(
@@ -89,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                                 return null;
                               },
                               obscureText: obscureText,
-                              prefix: const Icon(Icons.key),
+                              prefix: const Icon(Icons.key, color: darkOrangeColor),
                               suffix: GestureDetector(
                                 onTap: () {
                                   setState(() {
@@ -98,14 +98,14 @@ class _LoginPageState extends State<LoginPage> {
                                 },
                                 child: Icon(obscureText
                                     ? Icons.visibility_off
-                                    : Icons.visibility),
+                                    : Icons.visibility , color: darkOrangeColor,),
                               ),
                               textType: TextInputType.visiblePassword,
                               textLabel: "Password",
                               textHint: "Enter your Password",
-                              labelStyleForm: robotoCondensedBrownForm,
-                              focusedColor: lightBrownColor,
-                              enabledColor: darkBrownColor),
+                              labelStyleForm: robotoCondensedDarkOrange,
+                              focusedColor: darkOrangeColor,
+                              enabledColor: darkOrangeColor),
                           // Container(
                           //   child: FieldText(
                           //     obscureText: true,
@@ -126,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                               child: const Text(
                                 "Forgot your password?",
                                 style: TextStyle(
-                                  color: Colors.grey,
+                                  color: darkOrangeColor,
                                 ),
                               ),
                             ),
@@ -137,20 +137,20 @@ class _LoginPageState extends State<LoginPage> {
                             height: getProportionateScreenHeight(50),
                             child: ElevatedBtnApp(
                                 shapex: const RoundedRectangleBorder(
-                                    borderRadius:  BorderRadius.all(
-                                      Radius.circular(25),
-                                    ),
-                                ),
-                                colorx: darkBrownColor,
-                                childx:
-                                // Padding(
-                                //   padding: const EdgeInsets.only(
-                                //       left: 125, right: 125, top: 15, bottom: 15),
-                                //   child: 
-                                  Text(
-                                    "Login",
-                                    style: robotoCondensedLightBrownButton,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(25),
                                   ),
+                                ),
+                                colorx: lightOrangeColor,
+                                childx:
+                                    // Padding(
+                                    //   padding: const EdgeInsets.only(
+                                    //       left: 125, right: 125, top: 15, bottom: 15),
+                                    //   child:
+                                    Text(
+                                  "Login",
+                                  style: robotoCondensedDarkOrangeButton,
+                                ),
                                 // ),
                                 onPressedx: () {
                                   changeScreen(context, BottomNavbar());
@@ -183,8 +183,8 @@ class _LoginPageState extends State<LoginPage> {
                             child: Text.rich(
                               TextSpan(
                                 children: [
-                                  const TextSpan(
-                                      text: "Don\'t have an account? "),
+                                   TextSpan(
+                                      text: "Don\'t have an account? ", style: robotoCondensedDarkOrange),
                                   TextSpan(
                                     text: 'Create',
                                     recognizer: TapGestureRecognizer()
@@ -193,11 +193,9 @@ class _LoginPageState extends State<LoginPage> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    RegistrationPage()));
+                                                    const RegistrationPage()));
                                       },
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Theme.of(context).accentColor),
+                                    style: robotoCondensedDarkOrangeBold,
                                   ),
                                 ],
                               ),

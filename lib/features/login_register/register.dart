@@ -8,6 +8,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class RegistrationPage extends  StatefulWidget{
+  const RegistrationPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _RegistrationPageState();
@@ -51,11 +53,11 @@ class _RegistrationPageState extends State<RegistrationPage>{
                                   border: Border.all(
                                       width: getProportionateScreenWidth(5), color: Colors.white),
                                   color: Colors.white,
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       color: Colors.black12,
                                       blurRadius: 20,
-                                      offset: const Offset(5, 5),
+                                      offset: Offset(5, 5),
                                     ),
                                   ],
                                 ),
@@ -78,20 +80,21 @@ class _RegistrationPageState extends State<RegistrationPage>{
                         ),
                         SizedBox(height: getProportionateScreenHeight(30),),
                         Container(
+                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
                           child: TextFormField(
                             decoration: ThemeHelper().textInputDecoration('First Name', 'Enter your first name'),
                           ),
-                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
                         ),
                         SizedBox(height: getProportionateScreenHeight(30),),
                         Container(
+                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
                           child: TextFormField(
                             decoration: ThemeHelper().textInputDecoration('Last Name', 'Enter your last name'),
                           ),
-                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
                         ),
                         SizedBox(height: getProportionateScreenHeight(20)),
                         Container(
+                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
                           child: TextFormField(
                             decoration: ThemeHelper().textInputDecoration("E-mail address", "Enter your email"),
                             keyboardType: TextInputType.emailAddress,
@@ -102,10 +105,10 @@ class _RegistrationPageState extends State<RegistrationPage>{
                               return null;
                             },
                           ),
-                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
                         ),
                         SizedBox(height: getProportionateScreenHeight(20)),
                         Container(
+                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
                           child: TextFormField(
                             decoration: ThemeHelper().textInputDecoration(
                                 "Mobile Number",
@@ -118,10 +121,10 @@ class _RegistrationPageState extends State<RegistrationPage>{
                               return null;
                             },
                           ),
-                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
                         ),
                         SizedBox(height: getProportionateScreenHeight(20)),
                         Container(
+                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
                           child: TextFormField(
                             obscureText: true,
                             decoration: ThemeHelper().textInputDecoration(
@@ -133,7 +136,6 @@ class _RegistrationPageState extends State<RegistrationPage>{
                               return null;
                             },
                           ),
-                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
                         ),
                         SizedBox(height: getProportionateScreenHeight(15)),
                         FormField<bool>(
@@ -150,7 +152,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
                                             state.didChange(value);
                                           });
                                         }),
-                                    Text("I accept all terms and conditions.", style: TextStyle(color: Colors.grey),),
+                                    const Text("I accept all terms and conditions.", style: TextStyle(color: Colors.grey),),
                                   ],
                                 ),
                                 Container(
