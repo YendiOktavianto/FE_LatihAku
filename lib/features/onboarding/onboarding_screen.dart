@@ -2,6 +2,7 @@
 import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/constants/constant_animation.dart';
 import 'package:fe_latihaku/constants/constant_colors.dart';
+import 'package:fe_latihaku/constants/constant_text_styles.dart';
 import 'package:fe_latihaku/features/login_register/login.dart';
 import 'package:fe_latihaku/features/onboarding/onboarding_content.dart';
 import 'package:fe_latihaku/features/onboarding/onboarding_data.dart';
@@ -82,9 +83,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         children: [
                           Text(
                             'Skip',
-                            style: TextStyle(
-                                color: greyColor,
-                                fontSize: getProportionateScreenWidth(16)),
+                            style: robotoCondensedDarkOrangeOnboarding,
                           ),
                           InkWell(
                             onTap: () {
@@ -103,11 +102,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                       ? 200
                                       : 50,
                               decoration: BoxDecoration(
-                                color: rightButton,
+                                color: lightOrangeColor,
                                 borderRadius: BorderRadius.circular(20),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: rightButton.withOpacity(0.3),
+                                    color: lightOrangeColor.withOpacity(0.3),
                                     spreadRadius: 5,
                                     blurRadius: 7,
                                     offset: const Offset(
@@ -120,11 +119,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   ? Center(
                                       child: Text(
                                         "Get Started",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize:
-                                              getProportionateScreenWidth(20),
-                                        ),
+                                        style: ubuntudarkOrangeOnboarding,
                                       ),
                                     )
                                   : const Icon(
@@ -149,7 +144,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   AnimatedContainer buildDot({int index}) {
     return AnimatedContainer(
       duration: kAnimationDuration,
-      margin: EdgeInsets.only(right: 7),
+      margin:   const EdgeInsets.only(right: 7),
       height: getProportionateScreenHeight(3),
       width: _currentPage == index ? 30 : 15,
       decoration: BoxDecoration(

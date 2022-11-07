@@ -36,12 +36,7 @@ class OnboardingContent extends StatelessWidget {
         Text(
           text,
           textAlign: TextAlign.center,
-          style: TextStyle(
-              color: greyColor,
-              fontSize: getProportionateScreenWidth(18),
-              wordSpacing: 2.0,
-              letterSpacing: 2.0,
-              height: getProportionateScreenHeight(1.5)),
+          style: robotoCondensedDarkAccentOrangeRegular,
         ),
       ],
     );

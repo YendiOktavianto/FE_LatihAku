@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                             textType: TextInputType.name,
                             textLabel: "Username / Email",
                             textHint: "Enter your Username / Email",
-                            labelStyleForm: robotoCondensedDarkOrange,
+                            labelStyleForm: robotoCondensedDarkOrangeForm,
                             focusedColor: darkOrangeColor,
                             enabledColor: darkOrangeColor,
                           ),
@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                               textType: TextInputType.visiblePassword,
                               textLabel: "Password",
                               textHint: "Enter your Password",
-                              labelStyleForm: robotoCondensedDarkOrange,
+                              labelStyleForm: robotoCondensedDarkOrangeForm,
                               focusedColor: darkOrangeColor,
                               enabledColor: darkOrangeColor),
                           // Container(

@@ -1,5 +1,8 @@
 
 import 'package:fe_latihaku/configurations/size_config.dart';
+import 'package:fe_latihaku/constants/constant_colors.dart';
+import 'package:fe_latihaku/constants/constant_text_form.dart';
+import 'package:fe_latihaku/constants/constant_text_styles.dart';
 import 'package:fe_latihaku/features/login_register/header_widget.dart';
 import 'package:fe_latihaku/features/login_register/theme_helper.dart';
 import 'package:fe_latihaku/profile/profile.dart';
@@ -21,6 +24,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
   final _formKey = GlobalKey<FormState>();
   bool checkedValue = false;
   bool checkboxValue = false;
+
 
   @override
   Widget build(BuildContext context) {
@@ -81,9 +85,18 @@ class _RegistrationPageState extends State<RegistrationPage>{
                         SizedBox(height: getProportionateScreenHeight(30),),
                         Container(
                           decoration: ThemeHelper().inputBoxDecorationShaddow(),
-                          child: TextFormField(
-                            decoration: ThemeHelper().textInputDecoration('First Name', 'Enter your first name'),
-                          ),
+                          child: formTextField(
+                              validatorForm: (value) {
+
+                                return null;
+                              },
+                              prefix: const Icon(Icons.person_add, color: darkOrangeColor),
+                              textType: TextInputType.visiblePassword,
+                              textLabel: "First Name",
+                              textHint: "Enter your First Name",
+                              labelStyleForm: robotoCondensedDarkOrange,
+                              focusedColor: darkOrangeColor,
+                              enabledColor: darkOrangeColor),
                         ),
                         SizedBox(height: getProportionateScreenHeight(30),),
                         Container(

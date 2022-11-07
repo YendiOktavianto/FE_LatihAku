@@ -135,6 +135,12 @@ final robotoCondensedDarkOrange = TextStyle(
   letterSpacing: getProportionateScreenWidth(1),
 );
 
+// Text Color for Input Form
+const robotoCondensedDarkOrangeForm = TextStyle(
+  fontFamily: 'Roboto Condensed',
+  color: darkOrangeColor,
+);
+
 final robotoCondensedDarkOrangeBold = TextStyle(
   fontFamily: 'Roboto Condensed',
   fontSize: getProportionateScreenWidth(11),
@@ -143,6 +149,33 @@ final robotoCondensedDarkOrangeBold = TextStyle(
   height: getProportionateScreenHeight(1),
   letterSpacing: getProportionateScreenWidth(1),
 );
+
+// Text Color on Onboarding Content
+final robotoCondensedDarkAccentOrangeRegular = TextStyle(
+  fontFamily: 'Roboto Condensed',
+  fontSize: getProportionateScreenWidth(18),
+  color: darkOrangeAccentColor,
+  height: getProportionateScreenHeight(1.5),
+  letterSpacing: getProportionateScreenWidth(2.0),
+  wordSpacing: getProportionateScreenWidth(2.0)
+);
+
+// "Skip" Onboarding
+final robotoCondensedDarkOrangeOnboarding = TextStyle(
+  fontFamily: 'Roboto Condensed',
+  color: darkOrangeColor,
+  fontSize: getProportionateScreenWidth(16),
+);
+
+// Button "Get Started" Onboarding
+final ubuntudarkOrangeOnboarding = TextStyle(
+  fontFamily: 'Ubuntu',
+  color: darkOrangeColor,
+  fontSize: getProportionateScreenWidth(20),
+);
+
+
+
 
 
 

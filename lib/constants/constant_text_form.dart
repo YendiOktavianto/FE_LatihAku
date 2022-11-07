@@ -36,7 +36,7 @@ Widget formTextField(
         labelStyle: labelStyleForm,
         hintText: textHint,
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(100.0),
           borderSide: BorderSide(
             color: focusedColor,
           ),
@@ -94,7 +94,7 @@ Widget formPasswordField(
         labelStyle: labelStyleForm,
         hintText: textHint,
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(100.0),
           borderSide: BorderSide(
             color: focusedColor,
           ),
