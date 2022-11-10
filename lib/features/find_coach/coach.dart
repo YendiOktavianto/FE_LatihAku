@@ -1,6 +1,6 @@
 //@dart=2.9
-import 'package:fe_latihaku/coach/coach_card.dart';
 import 'package:fe_latihaku/configurations/size_config.dart';
+import 'package:fe_latihaku/features/find_coach/coach_card.dart';
 import 'package:fe_latihaku/models/coach_modeltesting.dart';
 import 'package:fe_latihaku/utils/search_bar.dart';
 import 'package:flutter/material.dart';

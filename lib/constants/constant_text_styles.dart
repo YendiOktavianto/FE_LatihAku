@@ -174,6 +174,13 @@ final ubuntudarkOrangeOnboarding = TextStyle(
   fontSize: getProportionateScreenWidth(20),
 );
 
+// Text "Good Morning"
+final arvoDarkBrownBoldHome = TextStyle(
+  fontFamily: 'Arvo',
+  fontWeight: FontWeight.w900,
+  fontSize: getProportionateScreenWidth(40)
+);
+
 
 
 

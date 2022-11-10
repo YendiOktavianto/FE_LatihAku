@@ -1,7 +1,9 @@
 //@dart=2.9
-import 'package:fe_latihaku/coach/coach.dart';
 import 'package:fe_latihaku/configurations/size_config.dart';
+import 'package:fe_latihaku/constants/constant_colors.dart';
+import 'package:fe_latihaku/constants/constant_text_styles.dart';
 import 'package:fe_latihaku/features/booking/booking.dart';
+import 'package:fe_latihaku/features/find_coach/coach.dart';
 import 'package:fe_latihaku/features/home/home_card.dart';
 import 'package:fe_latihaku/utils/routes.dart';
 import 'package:flutter/cupertino.dart';
@@ -25,7 +27,7 @@ class _HomeState extends State<Home> {
           // Here the height of the container is 45% of our total height
           height: getProportionateScreenHeight(365),
           decoration: const BoxDecoration(
-            color: Color(0xFFF5CEB8),
+            color: originalOrangeColor,
             image: DecorationImage(
               alignment: Alignment.centerLeft,
               image: AssetImage("assets/undraw_pilates_gpdb.png"),
@@ -41,11 +43,8 @@ class _HomeState extends State<Home> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 80.0),
                   child: Text(
-                    "Good Morning, \nShishir",
-                    style: //headingStyle
-                        Theme.of(context).textTheme.displayMedium.copyWith(
-                            fontWeight: FontWeight.w900,
-                            fontSize: getProportionateScreenWidth(50)),
+                    "Good Morning, \nShikhar",
+                    style: arvoDarkBrownBoldHome, //headingStyle
                   ),
                 ),
                 // SearchBar(),

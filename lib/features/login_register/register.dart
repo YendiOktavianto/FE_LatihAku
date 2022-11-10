@@ -33,7 +33,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            Container(
+            SizedBox(
               height: getProportionateScreenWidth(150),
               child: HeaderWidget(150, false, Icons.person_add_alt_1_rounded),
             ),
@@ -72,7 +72,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.fromLTRB(80, 80, 0, 0),
+                                padding: const EdgeInsets.fromLTRB(80, 80, 0, 0),
                                 child: Icon(
                                   Icons.add_circle,
                                   color: Colors.grey.shade700,
@@ -97,6 +97,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
                               labelStyleForm: robotoCondensedDarkOrange,
                               focusedColor: darkOrangeColor,
                               enabledColor: darkOrangeColor),
+                          //decoration: ThemeHelper().inputBoxDecorationShaddow(),
                         ),
                         SizedBox(height: getProportionateScreenHeight(30),),
                         Container(
@@ -216,7 +217,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
                           ),
                         ),
                         SizedBox(height: getProportionateScreenHeight(30)),
-                        Text("Or create account using social media",  style: TextStyle(color: Colors.grey),),
+                        const Text("Or create account using social media",  style: TextStyle(color: Colors.grey),),
                         SizedBox(height: getProportionateScreenHeight(25)),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,

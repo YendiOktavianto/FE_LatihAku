@@ -1,17 +1,31 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fe_latihaku/constants/constant_colors.dart';
 import 'package:fe_latihaku/constants/constant_text_styles.dart';
 import 'package:fe_latihaku/models/booking_place.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class ProductDetailsView extends StatelessWidget {
+class ProductDetailsView extends StatefulWidget {
   ProductDetailsView({Key? key}) : super(key: key);
+
+  @override
+  State<ProductDetailsView> createState() => _ProductDetailsViewState();
+}
+
+class _ProductDetailsViewState extends State<ProductDetailsView> {
   //final ProductController productController = Get.put(ProductController());
+  int _current = 0;
+
+  final CarouselController _controller = CarouselController();
 
   final List<SmProduct> smProducts = [
-    SmProduct(image: 'assets/images/product-1.png'),
-    SmProduct(image: 'assets/images/product-2.png'),
-    SmProduct(image: 'assets/images/product-3.png'),
-    SmProduct(image: 'assets/images/product-4.png'),
+    SmProduct(image: 'assets/product-1.png'),
+    SmProduct(image: 'assets/product-1.png'),
+    SmProduct(image: 'assets/product-1.png'),
+    SmProduct(image: 'assets/product-1.png'),
+    SmProduct(image: 'assets/product-1.png'),
+    SmProduct(image: 'assets/product-1.png'),
+    SmProduct(image: 'assets/product-1.png'),
   ];
 
   @override
@@ -41,108 +55,164 @@ class ProductDetailsView extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * .35,
-            padding: const EdgeInsets.only(bottom: 30),
-            width: double.infinity,
-            child: Image.asset('assets/images/main_image.png'),
+              height: MediaQuery.of(context).size.height * .35,
+              padding: const EdgeInsets.only(bottom: 30),
+              width: double.infinity,
+              child: CarouselSlider(
+                  items: smProducts
+                      .map((item) => Image.asset(item.image))
+                      .toList(),
+                  options: CarouselOptions(
+                    height: 400,
+                    aspectRatio: 16 / 9,
+                    viewportFraction: 0.8,
+                    initialPage: 0,
+                    enableInfiniteScroll: true,
+                    reverse: false,
+                    autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 3),
+                    autoPlayAnimationDuration:
+                        const Duration(milliseconds: 800),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    enlargeCenterPage: true,
+                    scrollDirection: Axis.horizontal,
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          _current = index;
+                        });
+                      }
+                  ),
+
+              ),
+
+              //Image.asset('assets/product-1.png'),
+              ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: smProducts.map((image) {
+              int index=smProducts.indexOf(image);
+              return Container(
+                width: 8.0,
+                height: 8.0,
+                margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: _current == index
+                        ? const Color.fromRGBO(0, 0, 0, 0.9)
+                        : const Color.fromRGBO(0, 0, 0, 0.4)
+                ),
+              );
+            },
+            ).toList(), // this was the part the I had to add
           ),
           Expanded(
-            child: Stack(
-              children: [
+            child:
+                // Stack(
+                //   children: [
                 Container(
-                  padding: const EdgeInsets.only(top: 40, right: 14, left: 14),
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
+              height: 200,
+              padding: const EdgeInsets.only(top: 40, right: 14, left: 14),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    RatingBarIndicator(
+                      rating: 2.75,
+                      itemBuilder: (context, index) => Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      itemCount: 5,
+                      itemSize: 30.0,
+                      //direction: Axis.vertical,
                     ),
-                  ),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    Text(
+                      'Chanel',
+                      // style: GoogleFonts.poppins(
+                      //   fontSize: 15,
+                      //   color: Colors.grey,
+                      // ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Chanel',
+
+                          'Product Name',
+
                           // style: GoogleFonts.poppins(
-                          //   fontSize: 15,
-                          //   color: Colors.grey,
-                          // ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              'Product Name',
-                              // style: GoogleFonts.poppins(
-                              //   fontSize: 22,
-                              //   fontWeight: FontWeight.w600,
-                              // ),
-                            ),
-                            Text(
-                              '\$135.00',
-                              style: arvoOrangeBold
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 15),
-                        Text(
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor consectetur tortor vitae interdum.',
-                          // style: GoogleFonts.poppins(
-                          //   fontSize: 15,
-                          //   color: Colors.grey,
-                          // ),
-                        ),
-                        const SizedBox(height: 15),
-                        Text(
-                          'Similar This',
-                          // style: GoogleFonts.poppins(
-                          //   fontSize: 16,
+                          //   fontSize: 22,
                           //   fontWeight: FontWeight.w600,
                           // ),
                         ),
-                        const SizedBox(height: 10),
-                        SizedBox(
-                          height: 110,
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: smProducts.length,
-                            itemBuilder: (context, index) => Container(
-                              margin: const EdgeInsets.only(right: 6),
-                              width: 110,
-                              height: 110,
-                              decoration: BoxDecoration(
-                                color: lightBlueColor,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Center(
-                                child: Image(
-                                  height: 70,
-                                  image: AssetImage(smProducts[index].image),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 20),
+                        Text('\$135.00', style: arvoOrangeBold),
                       ],
                     ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Container(
-                    margin: const EdgeInsets.only(top: 10),
-                    width: 50,
-                    height: 5,
-                    decoration: BoxDecoration(
-                      color: greyColor,
-                      borderRadius: BorderRadius.circular(50),
+                    const SizedBox(height: 15),
+                    Text(
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor consectetur tortor vitae interdum.',
+                      // style: GoogleFonts.poppins(
+                      //   fontSize: 15,
+                      //   color: Colors.grey,
+                      // ),
                     ),
-                  ),
+                    const SizedBox(height: 15),
+                    // Text(
+                    //   'Similar This',
+                    //   // style: GoogleFonts.poppins(
+                    //   //   fontSize: 16,
+                    //   //   fontWeight: FontWeight.w600,
+                    //   // ),
+                    // ),
+                    const SizedBox(height: 10),
+                    // SizedBox(
+                    //   height: 110,
+                    //   child: ListView.builder(
+                    //     scrollDirection: Axis.horizontal,
+                    //     itemCount: smProducts.length,
+                    //     itemBuilder: (context, index) => Container(
+                    //       margin: const EdgeInsets.only(right: 6),
+                    //       width: 110,
+                    //       height: 110,
+                    //       decoration: BoxDecoration(
+                    //         color: lightBlueColor,
+                    //         borderRadius: BorderRadius.circular(20),
+                    //       ),
+                    //       child: Center(
+                    //         child: Image(
+                    //           height: 70,
+                    //           image: AssetImage(smProducts[index].image),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                    const SizedBox(height: 20),
+                  ],
                 ),
-              ],
+              ),
             ),
+            // Align(
+            //   alignment: Alignment.topCenter,
+            //   child: Container(
+            //     margin: const EdgeInsets.only(top: 10),
+            //     width: 50,
+            //     height: 5,
+            //     decoration: BoxDecoration(
+            //       color: greyColor,
+            //       borderRadius: BorderRadius.circular(50),
+            //     ),
+            //   ),
+            // ),
+            //   ],
+            // ),
           ),
         ],
       ),
@@ -176,32 +246,32 @@ class ProductDetailsView extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: Colors.green,
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child
-                    //   : Obx(
-                    // () => productController.isAddLoading.value
-                    //     ? SizedBox(
-                    //         width: 20,
-                    //         height: 20,
-                    //         child: CircularProgressIndicator(
-                    //           color: Colors.white,
-                    //           strokeWidth: 3,
-                    //         ),
-                    //       )
-                        : Text(
-                            '+ Add to Cart',
-                            // style: GoogleFonts.poppins(
-                            //   fontSize: 15,
-                            //   fontWeight: FontWeight.w500,
-                            //   color: Colors.white,
-                            // ),
-                          ),
+                      //   : Obx(
+                      // () => productController.isAddLoading.value
+                      //     ? SizedBox(
+                      //         width: 20,
+                      //         height: 20,
+                      //         child: CircularProgressIndicator(
+                      //           color: Colors.white,
+                      //           strokeWidth: 3,
+                      //         ),
+                      //       )
+                      : Text(
+                    '+ Add to Cart',
+                    // style: GoogleFonts.poppins(
+                    //   fontSize: 15,
+                    //   fontWeight: FontWeight.w500,
+                    //   color: Colors.white,
+                    // ),
                   ),
                 ),
               ),
-           // ),
+            ),
+            // ),
           ],
         ),
       ),

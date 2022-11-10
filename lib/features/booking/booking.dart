@@ -22,7 +22,7 @@ class _BookingState extends State<Booking> {
           Container(
             // Here the height of the container is 45% of our total height
             height: getProportionateScreenHeight(365.4),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xFFF5CEB8),
               image: DecorationImage(
                 alignment: Alignment.centerLeft,
@@ -56,8 +56,8 @@ class _BookingState extends State<Booking> {
                         .displaySmall
                         .copyWith(fontWeight: FontWeight.w900),
                   ),
-                  SearchBar(),
-                  Expanded(
+                  const SearchBar(),
+                  const Expanded(
                     child: BookingCard()
                   ),
                 ],
