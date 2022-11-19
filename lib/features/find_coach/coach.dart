@@ -59,7 +59,7 @@ class _CoachState extends State<Coach> {
                   Expanded(
                     child: CoachCard(
                       images: myList,
-                      phones: phones,
+                      rating: rating,
                       title: names,
                     ),
                   ),

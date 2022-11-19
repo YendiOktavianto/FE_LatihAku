@@ -2,6 +2,7 @@
 import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/constants/constant_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 final arvoOrangeBold = TextStyle(
   fontFamily: 'Arvo',
@@ -115,7 +116,6 @@ final arvoDarkOrangeAccent = TextStyle(
   color: darkOrangeAccentColor,
   height: getProportionateScreenHeight(1),
   letterSpacing: getProportionateScreenWidth(2),
-
 );
 
 // Text Button for Login
@@ -152,13 +152,12 @@ final robotoCondensedDarkOrangeBold = TextStyle(
 
 // Text Color on Onboarding Content
 final robotoCondensedDarkAccentOrangeRegular = TextStyle(
-  fontFamily: 'Roboto Condensed',
-  fontSize: getProportionateScreenWidth(18),
-  color: darkOrangeAccentColor,
-  height: getProportionateScreenHeight(1.5),
-  letterSpacing: getProportionateScreenWidth(2.0),
-  wordSpacing: getProportionateScreenWidth(2.0)
-);
+    fontFamily: 'Roboto Condensed',
+    fontSize: getProportionateScreenWidth(18),
+    color: darkOrangeAccentColor,
+    height: getProportionateScreenHeight(1.5),
+    letterSpacing: getProportionateScreenWidth(2.0),
+    wordSpacing: getProportionateScreenWidth(2.0));
 
 // "Skip" Onboarding
 final robotoCondensedDarkOrangeOnboarding = TextStyle(
@@ -176,13 +175,22 @@ final ubuntudarkOrangeOnboarding = TextStyle(
 
 // Text "Good Morning"
 final arvoDarkBrownBoldHome = TextStyle(
+    fontFamily: 'Arvo',
+    fontWeight: FontWeight.w900,
+    fontSize: getProportionateScreenWidth(40));
+
+// Text Nama Tempat pada Booking Detail
+const arvoDarkOrangeBookingDetail = TextStyle(
+  fontSize: 22,
+  fontWeight: FontWeight.w600,
   fontFamily: 'Arvo',
-  fontWeight: FontWeight.w900,
-  fontSize: getProportionateScreenWidth(40)
+  color: darkOrangeColor
 );
 
-
-
-
-
-
+// Text "Product Name"
+const arvoOrangeBookingDetail = TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Arvo',
+    color: originalOrangeColor
+);

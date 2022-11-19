@@ -22,7 +22,7 @@ class _CoachDetailState extends State<CoachDetail> {
 
     return Scaffold(
       body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           width: width,
           child: Stack(
             children: <Widget>[
@@ -48,7 +48,7 @@ class _CoachDetailState extends State<CoachDetail> {
                 width: width,
                 margin: EdgeInsets.only(top: getProportionateScreenHeight(406)),
                 padding: EdgeInsets.all(30),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
@@ -162,7 +162,7 @@ class _CoachDetailState extends State<CoachDetail> {
                   onTap: () {
                     Navigator.pop(context);
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.keyboard_backspace,
                     size: 42,
                     color: Colors.white,
