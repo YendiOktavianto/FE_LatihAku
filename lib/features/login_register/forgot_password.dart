@@ -30,13 +30,13 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
               ),
               SafeArea(
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(25, 10, 25, 10),
-                  padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  margin: const EdgeInsets.fromLTRB(25, 10, 25, 10),
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   child: Column(
                     children: [
                       Container(
                         alignment: Alignment.topLeft,
-                        margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,7 +50,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               // textAlign: TextAlign.center,
                             ),
                             SizedBox(height: getProportionateScreenHeight(10),),
-                            Text('Enter the email address associated with your account.',
+                            const Text('Enter the email address associated with your account.',
                               style: TextStyle(
                                 // fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -59,7 +59,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               // textAlign: TextAlign.center,
                             ),
                             SizedBox(height: getProportionateScreenHeight(10),),
-                            Text('We will email you a verification code to check your authenticity.',
+                            const Text('We will email you a verification code to check your authenticity.',
                               style: TextStyle(
                                 color: Colors.black38,
                                 // fontSize: 20,

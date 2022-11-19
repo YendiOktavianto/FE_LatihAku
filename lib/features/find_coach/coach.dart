@@ -15,15 +15,13 @@ class Coach extends StatefulWidget {
 class _CoachState extends State<Coach> {
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context)
-        .size; //this gonna give us total height and with of our device
     return Scaffold(
       body: Stack(
         children: <Widget>[
           Container(
             // Here the height of the container is 45% of our total height
             height: getProportionateScreenHeight(365),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xFFF5CEB8),
               image: DecorationImage(
                 alignment: Alignment.centerLeft,
@@ -57,7 +55,7 @@ class _CoachState extends State<Coach> {
                         .displaySmall
                         .copyWith(fontWeight: FontWeight.w900),
                   ),
-                  SearchBar(),
+                  const SearchBar(),
                   Expanded(
                     child: CoachCard(
                       images: myList,
