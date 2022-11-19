@@ -106,22 +106,13 @@ class _LoginPageState extends State<LoginPage> {
                               labelStyleForm: robotoCondensedDarkOrangeForm,
                               focusedColor: darkOrangeColor,
                               enabledColor: darkOrangeColor),
-                          // Container(
-                          //   child: FieldText(
-                          //     obscureText: true,
-                          //     decoration: ThemeHelper().textInputDecoration(
-                          //         'Password', 'Enter your password'),
-                          //   ),
-                          //   decoration:
-                          //       ThemeHelper().inputBoxDecorationShaddow(),
-                          // ),
                           SizedBox(height: getProportionateScreenHeight(15)),
                           Container(
                             margin: const EdgeInsets.fromLTRB(10, 0, 10, 20),
                             alignment: Alignment.topRight,
                             child: GestureDetector(
                               onTap: () {
-                                changeScreen(context, ForgotPasswordPage());
+                                changeScreen(context, const ForgotPasswordPage());
                               },
                               child: const Text(
                                 "Forgot your password?",
@@ -153,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                                 // ),
                                 onPressedx: () {
-                                  changeScreen(context, BottomNavbar());
+                                  changeScreen(context, const BottomNavbar());
                                 }),
                           ),
                           // Container(

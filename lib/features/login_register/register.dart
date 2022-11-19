@@ -1,4 +1,5 @@
 import 'package:fe_latihaku/configurations/size_config.dart';
+import 'package:fe_latihaku/constants/constant_button.dart';
 import 'package:fe_latihaku/constants/constant_colors.dart';
 import 'package:fe_latihaku/constants/constant_text_form.dart';
 import 'package:fe_latihaku/constants/constant_text_styles.dart';
@@ -22,6 +23,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
   final _formKey = GlobalKey<FormState>();
   bool checkedValue = false;
   bool checkboxValue = false;
+  bool obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +93,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               validatorForm: (value) {
                                 return null;
                               },
-                              prefix: const Icon(Icons.person_add,
+                              prefix: const Icon(Icons.people,
                                   color: darkOrangeColor),
                               textType: TextInputType.visiblePassword,
                               textLabel: "First Name",
@@ -110,7 +112,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               validatorForm: (value) {
                                 return null;
                               },
-                              prefix: const Icon(Icons.person_add,
+                              prefix: const Icon(Icons.people,
                                   color: darkOrangeColor),
                               textType: TextInputType.visiblePassword,
                               textLabel: "Last Name",
@@ -122,49 +124,76 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         SizedBox(height: getProportionateScreenHeight(20)),
                         Container(
                           decoration: ThemeHelper().inputBoxDecorationShaddow(),
-                          child: TextFormField(
-                            decoration: ThemeHelper().textInputDecoration(
-                                "E-mail address", "Enter your email"),
-                            keyboardType: TextInputType.emailAddress,
-                            validator: (val) {
-                              if (!(val!.isEmpty) &&
-                                  !RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
-                                      .hasMatch(val)) {
-                                return "Enter a valid email address";
-                              }
-                              return null;
-                            },
-                          ),
+                          child: formTextField(
+                              validatorForm: (val) {
+                                if ((val.isNotEmpty) &&
+                                    !RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
+                                        .hasMatch(val)) {
+                                  return "Enter a valid email address";
+                                }
+                                return null;
+                              },
+                              prefix: const Icon(Icons.email_rounded,
+                                  color: darkOrangeColor),
+                              textType: TextInputType.emailAddress,
+                              textLabel: "Email Address",
+                              textHint: "Enter your Email Address",
+                              labelStyleForm: robotoCondensedDarkOrange,
+                              focusedColor: darkOrangeColor,
+                              enabledColor: darkOrangeColor),
                         ),
                         SizedBox(height: getProportionateScreenHeight(20)),
                         Container(
                           decoration: ThemeHelper().inputBoxDecorationShaddow(),
-                          child: TextFormField(
-                            decoration: ThemeHelper().textInputDecoration(
-                                "Mobile Number", "Enter your mobile number"),
-                            keyboardType: TextInputType.phone,
-                            validator: (val) {
-                              if (!(val!.isEmpty) &&
-                                  !RegExp(r"^(\d+)*$").hasMatch(val)) {
-                                return "Enter a valid phone number";
-                              }
-                              return null;
-                            },
-                          ),
+                          child: formTextField(
+                              validatorForm: (val) {
+                                if ((!val.isNotEmpty) &&
+                                    !RegExp(r"^(\d+)*$").hasMatch(val)) {
+                                  return "Enter a valid phone number";
+                                }
+                                return null;
+                              },
+                              prefix: const Icon(Icons.phone,
+                                  color: darkOrangeColor),
+                              textType: TextInputType.phone,
+                              textLabel: "Phone Number",
+                              textHint: "Enter your Phone Number",
+                              labelStyleForm: robotoCondensedDarkOrange,
+                              focusedColor: darkOrangeColor,
+                              enabledColor: darkOrangeColor),
                         ),
                         SizedBox(height: getProportionateScreenHeight(20)),
                         Container(
                           decoration: ThemeHelper().inputBoxDecorationShaddow(),
-                          child: TextFormField(
-                            obscureText: true,
-                            decoration: ThemeHelper().textInputDecoration(
-                                "Password*", "Enter your password"),
-                            validator: (val) {
-                              if (val!.isEmpty) {
+                          child: formTextField(
+                            validatorForm: (val) {
+                              if (val.isNotEmpty) {
                                 return "Please enter your password";
                               }
                               return null;
                             },
+                            prefix: const Icon(Icons.password_outlined,
+                                color: darkOrangeColor),
+                            textType: TextInputType.visiblePassword,
+                            textLabel: "Password",
+                            textHint: "Enter your Password",
+                            labelStyleForm: robotoCondensedDarkOrange,
+                            focusedColor: darkOrangeColor,
+                            enabledColor: darkOrangeColor,
+                            obscureText: obscureText,
+                            suffix: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  obscureText = !obscureText;
+                                });
+                              },
+                              child: Icon(
+                                obscureText
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                                color: darkOrangeColor,
+                              ),
+                            ),
                           ),
                         ),
                         SizedBox(height: getProportionateScreenHeight(15)),
@@ -182,9 +211,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                             state.didChange(value);
                                           });
                                         }),
-                                    const Text(
+                                    Text(
                                       "I accept all terms and conditions.",
-                                      style: TextStyle(color: Colors.grey),
+                                      style: robotoCondensedDarkOrange,
                                     ),
                                   ],
                                 ),
@@ -211,37 +240,39 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           },
                         ),
                         SizedBox(height: getProportionateScreenHeight(20)),
-                        Container(
-                          decoration:
-                              ThemeHelper().buttonBoxDecoration(context),
-                          child: ElevatedButton(
-                            style: ThemeHelper().buttonStyle(),
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(40, 10, 40, 10),
-                              child: Text(
-                                "Register".toUpperCase(),
-                                style: TextStyle(
-                                  fontSize: getProportionateScreenWidth(20),
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                        SizedBox(
+                          width: getProportionateScreenWidth(300),
+                          height: getProportionateScreenHeight(50),
+                          child: ElevatedBtnApp(
+                              shapex: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(25),
                                 ),
                               ),
-                            ),
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                Navigator.of(context).pushAndRemoveUntil(
-                                    MaterialPageRoute(
-                                        builder: (context) => ProfilePage()),
-                                    (Route<dynamic> route) => false);
-                              }
-                            },
-                          ),
+                              colorx: lightOrangeColor,
+                              childx:
+                                  // Padding(
+                                  //   padding: const EdgeInsets.only(
+                                  //       left: 125, right: 125, top: 15, bottom: 15),
+                                  //   child:
+                                  Text(
+                                "Register",
+                                style: robotoCondensedDarkOrangeButton,
+                              ),
+                              // ),
+                              onPressedx: () {
+                                if (_formKey.currentState!.validate()) {
+                                  Navigator.of(context).pushAndRemoveUntil(
+                                      MaterialPageRoute(
+                                          builder: (context) => ProfilePage()),
+                                      (Route<dynamic> route) => false);
+                                }
+                              }),
                         ),
                         SizedBox(height: getProportionateScreenHeight(30)),
-                        const Text(
+                        Text(
                           "Or create account using social media",
-                          style: TextStyle(color: Colors.grey),
+                          style: robotoCondensedDarkOrange,
                         ),
                         SizedBox(height: getProportionateScreenHeight(25)),
                         Row(
@@ -272,7 +303,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             ),
                             GestureDetector(
                               child: Container(
-                                padding: EdgeInsets.all(0),
+                                padding: const EdgeInsets.all(0),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(100),
                                   border: Border.all(
