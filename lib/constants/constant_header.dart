@@ -4,20 +4,20 @@ import 'package:fe_latihaku/constants/constant_text_styles.dart';
 import 'package:fe_latihaku/utils/search_bar.dart';
 import 'package:flutter/material.dart';
 
-Widget appHeader() {
+Widget appHeader(String img, Color colors) {
   return Container(
     height: getProportionateScreenHeight(365),
-    decoration: const BoxDecoration(
-      color: originalOrangeColor,
+    decoration:  BoxDecoration(
+      color: colors,
       image: DecorationImage(
         alignment: Alignment.centerLeft,
-        image: AssetImage("assets/undraw_pilates_gpdb.png"),
+        image: AssetImage(img),
       ),
     ),
   );
 }
 
-Widget appHeaderText(String textHeader, bool search, Widget body) {
+Widget appHeaderText(String textHeader, bool search, Widget body, double paddings) {
   return SafeArea(
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -25,7 +25,7 @@ Widget appHeaderText(String textHeader, bool search, Widget body) {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(bottom: 80.0),
+            padding: EdgeInsets.only(bottom: paddings),
             child: Text(
               textHeader,
               //"Good Morning, \nShikhar",

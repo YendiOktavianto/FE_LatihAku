@@ -2,7 +2,6 @@
 import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/constants/constant_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 final arvoOrangeBold = TextStyle(
   fontFamily: 'Arvo',
@@ -128,11 +127,9 @@ final robotoCondensedDarkOrangeButton = TextStyle(
 
 final robotoCondensedDarkOrange = TextStyle(
   fontFamily: 'Roboto Condensed',
-  fontSize: getProportionateScreenWidth(11),
+  fontSize: getProportionateScreenWidth(12),
   fontWeight: FontWeight.normal,
   color: darkOrangeColor,
-  height: getProportionateScreenHeight(1),
-  letterSpacing: getProportionateScreenWidth(1),
 );
 
 // Text Color for Input Form

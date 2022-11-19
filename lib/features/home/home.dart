@@ -1,4 +1,5 @@
 //@dart=2.9
+import 'package:fe_latihaku/constants/constant_colors.dart';
 import 'package:fe_latihaku/constants/constant_header.dart';
 import 'package:fe_latihaku/features/booking/booking.dart';
 import 'package:fe_latihaku/features/find_coach/coach.dart';
@@ -19,7 +20,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        appHeader(),
+        appHeader("assets/undraw_pilates_gpdb.png",originalOrangeColor),
         appHeaderText("Good Morning, \nShikhar", true, GridView.count(
           crossAxisCount: 2,
           childAspectRatio: .85,
@@ -36,28 +37,24 @@ class _HomeState extends State<Home> {
             CategoryCard(
               title: "My Coach",
               svgSrc: "assets/Excrecises.svg",
-              press: () {},
+              press: () {
+                changeScreen(context, const Coach());
+              },
             ),
             CategoryCard(
               title: "Booking Sport Place",
               svgSrc: "assets/Meditation.svg",
               press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) {
-                    return const Booking();
-                    // return DetailsScreen();
-                  }),
-                );
+                changeScreen(context, const Booking());
               },
             ),
             CategoryCard(
-              title: "Status Booking Place",
+              title: "My Booking Place",
               svgSrc: "assets/yoga.svg",
               press: () {},
             ),
           ],
-        )) ,
+        ),80) ,
       ],
     );
     //);

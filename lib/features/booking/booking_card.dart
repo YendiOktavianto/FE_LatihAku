@@ -57,12 +57,12 @@ class _BookingCardState extends State<BookingCard> {
                 child: Text(
                   // products is out demo list
                   products[index].title,
-                  style: TextStyle(color: kTextLightColor),
+                  style: const TextStyle(color: kTextLightColor),
                 ),
               ),
               Text(
                 "\$${products[index].price}",
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               )
             ],
           ),

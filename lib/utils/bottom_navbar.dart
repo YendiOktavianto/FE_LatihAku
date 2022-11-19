@@ -1,6 +1,7 @@
 //@dart=2.9
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:fe_latihaku/configurations/size_config.dart';
+import 'package:fe_latihaku/features/favourite/favourite.dart';
 import 'package:fe_latihaku/features/home/home.dart';
 import 'package:fe_latihaku/profile/profile.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +20,8 @@ class _BottomNavbarState extends State<BottomNavbar> {
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   final screens = [
     Home(),
-    Home(),
-    Home(),
-    Home(),
+    FavouritePage(),
+    FavouritePage(),
     ProfilePage()
   ];
 
@@ -34,7 +34,6 @@ class _BottomNavbarState extends State<BottomNavbar> {
           height: getProportionateScreenHeight(60),
           items: <Widget>[
             Icon(Icons.home, size: 30),
-            Icon(Icons.shopping_cart, size: 30),
             Icon(Icons.favorite, size: 30),
             Icon(Icons.article, size: 30),
             Icon(Icons.person, size: 30),
