@@ -205,6 +205,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                   children: <Widget>[
                                     Checkbox(
                                         value: checkboxValue,
+                                        activeColor: darkOrangeColor,
                                         onChanged: (value) {
                                           setState(() {
                                             checkboxValue = value!;
