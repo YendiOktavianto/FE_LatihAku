@@ -3,13 +3,14 @@ import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/features/find_coach/coach_detail.dart';
 import 'package:fe_latihaku/utils/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class CoachCard extends StatelessWidget {
   final List<String> images;
   final List<String> title;
-  final List<String> phones;
+  final List<double> rating;
 
-  const CoachCard({Key key, this.images, this.title, this.phones})
+  const CoachCard({Key key, this.images, this.title, this.rating})
       : super(key: key);
 
   @override
@@ -17,7 +18,7 @@ class CoachCard extends StatelessWidget {
     return Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height / 2,
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 1),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 1),
         child: ListView.builder(
           itemCount: images.length,
           itemBuilder: (BuildContext context, int index) {
@@ -36,13 +37,22 @@ class CoachCard extends StatelessWidget {
                     radius: 30,
                     backgroundImage: ExactAssetImage(images[index]),
                   ),
-                  title: Text(title[index],
-                      style:
-                          TextStyle(fontSize: getProportionateScreenWidth(14))),
-                  subtitle: Text(phones[index],
-                      style:
-                          TextStyle(fontSize: getProportionateScreenWidth(10))),
-                  trailing: Icon(Icons.tag_faces),
+                  title: Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Text(title[index],
+                        style:
+                            TextStyle(fontSize: getProportionateScreenWidth(14))),
+                  ),
+                  subtitle: RatingBarIndicator(
+                    rating: rating[index],
+                    itemBuilder: (context, index) => const Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    itemCount: 5,
+                    itemSize: 15,
+                    //direction: Axis.vertical,
+                  ),
                 ),
               ),
             );

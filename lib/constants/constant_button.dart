@@ -1,6 +1,8 @@
 //@dart=2.9
+import 'package:fe_latihaku/constants/constant_colors.dart';
 import 'package:fe_latihaku/constants/constant_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:like_button/like_button.dart';
 
 Widget ElevatedBtnApp(
     {Color colorx,
@@ -102,3 +104,28 @@ Widget FlatButtonApp(
 //   );
 // }
 
+Widget likeButton(bool isLiked,Function onTapX) {
+  double size = 40;
+  return Container(
+      width: 50,
+      height: 50,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: greyColor),
+      ),
+      child: LikeButton(
+        size: 40,
+        isLiked: isLiked,
+        likeBuilder: (isLiked) {
+          final color = isLiked ? darkOrangeAccentColor : lightBrownColor;
+
+          return Icon(Icons.favorite, color: color, size: size);
+        },
+        // onTap: (isLiked) async {
+        //   this.isLiked = !isLiked;
+        //   return !isLiked;
+        // },
+        onTap: onTapX,
+      ));
+}

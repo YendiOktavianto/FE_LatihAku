@@ -1,7 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:fe_latihaku/configurations/size_config.dart';
+import 'package:fe_latihaku/constants/constant_button.dart';
 import 'package:fe_latihaku/constants/constant_colors.dart';
 import 'package:fe_latihaku/constants/constant_text_styles.dart';
 import 'package:fe_latihaku/models/booking_place.dart';
+import 'package:fe_latihaku/utils/bottom_navbar.dart';
+import 'package:fe_latihaku/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:like_button/like_button.dart';
@@ -17,7 +21,11 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
   //final ProductController productController = Get.put(ProductController());
   int _current = 0;
   bool isLiked = false;
-  double size = 40;
+
+  Future<bool> onTapX(isLiked) async {
+    this.isLiked = !isLiked;
+    return !isLiked;
+  }
 
   final CarouselController _controller = CarouselController();
 
@@ -141,13 +149,9 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const Text(
-                          'Product Name',
+                          '08:00 - 20:00',
                           style: arvoOrangeBookingDetail,
                           textAlign: TextAlign.center,
-                          // style: GoogleFonts.poppins(
-                          //   fontSize: 22,
-                          //   fontWeight: FontWeight.w600,
-                          // ),
                         ),
                         Text('\$135.00', style: arvoOrangeBold),
                       ],
@@ -157,7 +161,6 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor consectetur tortor vitae interdum.',
                       // style: GoogleFonts.poppins(
                       //   fontSize: 15,
-                      //   color: Colors.grey,
                       // ),
                     ),
                     const SizedBox(height: 15),
@@ -220,63 +223,29 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-                width: 50,
-                height: 50,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: greyColor),
-                ),
-                child: LikeButton(
-                  size: 40,
-                  isLiked: isLiked,
-                  likeBuilder: (isLiked) {
-                    final color =
-                        isLiked ? darkOrangeAccentColor : lightBrownColor;
-
-                    return Icon(Icons.favorite, color: color, size: size);
-                  },
-                  onTap: (isLiked) async {
-                    this.isLiked = !isLiked;
-                    return !isLiked;
-                  },
-                )),
+            likeButton(isLiked, onTapX),
             const SizedBox(width: 20),
             Expanded(
-              child: InkWell(
-                onTap: () {
-                  //productController.addToCart();
-                },
-                child: Container(
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: originalOrangeAccentColor,
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child
-                      //   : Obx(
-                      // () => productController.isAddLoading.value
-                      //     ? SizedBox(
-                      //         width: 20,
-                      //         height: 20,
-                      //         child: CircularProgressIndicator(
-                      //           color: Colors.white,
-                      //           strokeWidth: 3,
-                      //         ),
-                      //       )
-                      : const Text(
-                    'Add to Cart',
-                    // style: GoogleFonts.poppins(
-                    //   fontSize: 15,
-                    //   fontWeight: FontWeight.w500,
-                    //   color: Colors.white,
+              child: SizedBox(
+                width: getProportionateScreenWidth(300),
+                height: getProportionateScreenHeight(50),
+                child: ElevatedBtnApp(
+                    shapex: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(25),
+                      ),
+                    ),
+                    colorx: lightOrangeColor,
+                    childx: const Text(
+                      "Add To Cart",
+                      style: arvoDarkOrangeBookingDetail,
+                    ),
                     // ),
-                  ),
-                ),
+                    onPressedx: () {
+                      changeScreen(context, BottomNavbar());
+                    }),
               ),
             ),
-            // ),
           ],
         ),
       ),

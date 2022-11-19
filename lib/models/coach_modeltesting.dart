@@ -1,4 +1,6 @@
 //@dart=2.9
+import 'dart:ffi';
+
 class Coffee {
   final String name;
   final String type;
@@ -10,12 +12,12 @@ class Coffee {
 
   Coffee(
       {this.name,
-        this.type,
-        this.shortDesc,
-        this.desc,
-        this.image,
-        this.rate,
-        this.price});
+      this.type,
+      this.shortDesc,
+      this.desc,
+      this.image,
+      this.rate,
+      this.price});
 }
 
 List<Coffee> menu = [
@@ -24,7 +26,7 @@ List<Coffee> menu = [
       type: 'Hot',
       shortDesc: "Esspresso dengan rasa lebih mild",
       desc:
-      "Kamu pasti selalu menemukan cappuccino dalam buku menu tiap kali pergi ke kedai kopi, atau bahkan kafe-kafe biasa. Cappuccino adalah olahan espresso yang paling banyak digemari, terutama bagi penikmat kopi dengan rasa lebih mild",
+          "Kamu pasti selalu menemukan cappuccino dalam buku menu tiap kali pergi ke kedai kopi, atau bahkan kafe-kafe biasa. Cappuccino adalah olahan espresso yang paling banyak digemari, terutama bagi penikmat kopi dengan rasa lebih mild",
       image: "assets/cappuccino.jpg",
       rate: 5,
       price: 22000),
@@ -33,7 +35,7 @@ List<Coffee> menu = [
       type: "Hot",
       shortDesc: "Espresso dengan milky dan gurih.",
       desc:
-      "Kalau kamu gak terlalu menikmati kopi yang cenderung pahit, kamu bisa pesan macchiato sebagai alternatif. Rasio steamed milk dalam minuman ini lebih besar dari espresso, sehingga ada sentuhan milky dan gurih.",
+          "Kalau kamu gak terlalu menikmati kopi yang cenderung pahit, kamu bisa pesan macchiato sebagai alternatif. Rasio steamed milk dalam minuman ini lebih besar dari espresso, sehingga ada sentuhan milky dan gurih.",
       image: "assets/Macchiato.jpg",
       rate: 5,
       price: 22000),
@@ -42,7 +44,7 @@ List<Coffee> menu = [
       type: "Hot",
       shortDesc: "Ekstrak kopi dengan buih putih",
       desc:
-      "Minuman kopi paling dasar ini biasanya disajikan dalam demitasse alias cangkir khusus espresso berukuran 30 mililiter (satu shot) sampai 118 mililiter. Espresso bertekstur pekat dan pahit, dengan buih putih alias crema di atasnya yang terbentuk dari tekanan minyak dalam bijih kopi.",
+          "Minuman kopi paling dasar ini biasanya disajikan dalam demitasse alias cangkir khusus espresso berukuran 30 mililiter (satu shot) sampai 118 mililiter. Espresso bertekstur pekat dan pahit, dengan buih putih alias crema di atasnya yang terbentuk dari tekanan minyak dalam bijih kopi.",
       image: "assets/espreso.jpg",
       rate: 5,
       price: 12000),
@@ -51,14 +53,11 @@ List<Coffee> menu = [
       type: "Hot",
       shortDesc: "Espresso dengan air panas",
       desc:
-      "Americano terdiri dari satu shot espresso yang dituangkan dalam cangkir berukuran 178 mililiter yang dicampur dengan air panas hingga memenuhi gelas. Jenis lainnya adalah doppio, yakni segelas Americano dengan dua shot espresso. Minuman ini kerap disajikan dalam panas maupun dingin yang disebut iced Americano.",
+          "Americano terdiri dari satu shot espresso yang dituangkan dalam cangkir berukuran 178 mililiter yang dicampur dengan air panas hingga memenuhi gelas. Jenis lainnya adalah doppio, yakni segelas Americano dengan dua shot espresso. Minuman ini kerap disajikan dalam panas maupun dingin yang disebut iced Americano.",
       image: "assets/americano.jpg",
       rate: 5,
       price: 15000),
 ];
-
-
-
 
 final List<String> myList = [
   'assets/img1.png',
@@ -68,10 +67,10 @@ final List<String> myList = [
   'assets/img3.png',
 ];
 final List<String> names = ['ichigo', 'niigo', 'sango', 'yongo', 'hakko'];
-final List<String> phones = [
-  '(021)678392',
-  '(021)678334',
-  '(021)672414',
-  '(021)678390',
-  '(021)679992'
+final List<double> rating = [
+  3.00,
+  4.50,
+  1.00,
+  2.50,
+  3.50
 ];
