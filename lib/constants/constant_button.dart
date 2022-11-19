@@ -14,9 +14,7 @@ Widget ElevatedBtnApp(
   if (disabledTextColorx == null && textColorx == null) {
     disabledTextColorx = colorx;
   }
-  if (textColorx == null) {
-    textColorx = colorx;
-  }
+  textColorx ??= colorx;
   return ElevatedButton(
       key: keyx,
       style: ButtonStyle(
@@ -103,3 +101,4 @@ Widget FlatButtonApp(
 //     ),
 //   );
 // }
+

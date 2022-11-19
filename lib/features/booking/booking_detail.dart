@@ -4,6 +4,7 @@ import 'package:fe_latihaku/constants/constant_text_styles.dart';
 import 'package:fe_latihaku/models/booking_place.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:like_button/like_button.dart';
 
 class ProductDetailsView extends StatefulWidget {
   ProductDetailsView({Key? key}) : super(key: key);
@@ -15,6 +16,8 @@ class ProductDetailsView extends StatefulWidget {
 class _ProductDetailsViewState extends State<ProductDetailsView> {
   //final ProductController productController = Get.put(ProductController());
   int _current = 0;
+  bool isLiked = false;
+  double size = 40;
 
   final CarouselController _controller = CarouselController();
 
@@ -55,54 +58,50 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
       body: Column(
         children: [
           Container(
-              height: MediaQuery.of(context).size.height * .35,
-              padding: const EdgeInsets.only(bottom: 30),
-              width: double.infinity,
-              child: CarouselSlider(
-                  items: smProducts
-                      .map((item) => Image.asset(item.image))
-                      .toList(),
-                  options: CarouselOptions(
-                    height: 400,
-                    aspectRatio: 16 / 9,
-                    viewportFraction: 0.8,
-                    initialPage: 0,
-                    enableInfiniteScroll: true,
-                    reverse: false,
-                    autoPlay: true,
-                    autoPlayInterval: const Duration(seconds: 3),
-                    autoPlayAnimationDuration:
-                        const Duration(milliseconds: 800),
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    enlargeCenterPage: true,
-                    scrollDirection: Axis.horizontal,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          _current = index;
-                        });
-                      }
-                  ),
+            height: MediaQuery.of(context).size.height * .35,
+            padding: const EdgeInsets.only(bottom: 30),
+            width: double.infinity,
+            child: CarouselSlider(
+              items: smProducts.map((item) => Image.asset(item.image)).toList(),
+              options: CarouselOptions(
+                  height: 400,
+                  aspectRatio: 16 / 9,
+                  viewportFraction: 0.8,
+                  initialPage: 0,
+                  enableInfiniteScroll: true,
+                  reverse: false,
+                  autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 3),
+                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enlargeCenterPage: true,
+                  scrollDirection: Axis.horizontal,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _current = index;
+                    });
+                  }),
+            ),
 
-              ),
-
-              //Image.asset('assets/product-1.png'),
-              ),
+            //Image.asset('assets/product-1.png'),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: smProducts.map((image) {
-              int index=smProducts.indexOf(image);
-              return Container(
-                width: 8.0,
-                height: 8.0,
-                margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: _current == index
-                        ? const Color.fromRGBO(0, 0, 0, 0.9)
-                        : const Color.fromRGBO(0, 0, 0, 0.4)
-                ),
-              );
-            },
+            children: smProducts.map(
+              (image) {
+                int index = smProducts.indexOf(image);
+                return Container(
+                  width: 8.0,
+                  height: 8.0,
+                  margin: const EdgeInsets.symmetric(
+                      vertical: 10.0, horizontal: 2.0),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: _current == index
+                          ? const Color.fromRGBO(0, 0, 0, 0.9)
+                          : const Color.fromRGBO(0, 0, 0, 0.4)),
+                );
+              },
             ).toList(), // this was the part the I had to add
           ),
           Expanded(
@@ -125,7 +124,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   children: [
                     RatingBarIndicator(
                       rating: 2.75,
-                      itemBuilder: (context, index) => Icon(
+                      itemBuilder: (context, index) => const Icon(
                         Icons.star,
                         color: Colors.amber,
                       ),
@@ -133,20 +132,18 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                       itemSize: 30.0,
                       //direction: Axis.vertical,
                     ),
-                    Text(
-                      'Chanel',
-                      // style: GoogleFonts.poppins(
-                      //   fontSize: 15,
-                      //   color: Colors.grey,
-                      // ),
+                    const SizedBox(height: 15),
+                    const Text(
+                      'Lapangan Chandra Wijaya',
+                      style: arvoDarkOrangeBookingDetail,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-
+                        const Text(
                           'Product Name',
-
+                          style: arvoOrangeBookingDetail,
+                          textAlign: TextAlign.center,
                           // style: GoogleFonts.poppins(
                           //   fontSize: 22,
                           //   fontWeight: FontWeight.w600,
@@ -156,7 +153,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                       ],
                     ),
                     const SizedBox(height: 15),
-                    Text(
+                    const Text(
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor consectetur tortor vitae interdum.',
                       // style: GoogleFonts.poppins(
                       //   fontSize: 15,
@@ -219,25 +216,33 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
       bottomNavigationBar: Container(
         height: 70,
         color: Colors.white,
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              width: 50,
-              height: 50,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: greyColor),
-              ),
-              child: Icon(
-                Icons.favorite,
-                size: 30,
-                color: Colors.grey,
-              ),
-            ),
-            SizedBox(width: 20),
+                width: 50,
+                height: 50,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: greyColor),
+                ),
+                child: LikeButton(
+                  size: 40,
+                  isLiked: isLiked,
+                  likeBuilder: (isLiked) {
+                    final color =
+                        isLiked ? darkOrangeAccentColor : lightBrownColor;
+
+                    return Icon(Icons.favorite, color: color, size: size);
+                  },
+                  onTap: (isLiked) async {
+                    this.isLiked = !isLiked;
+                    return !isLiked;
+                  },
+                )),
+            const SizedBox(width: 20),
             Expanded(
               child: InkWell(
                 onTap: () {
@@ -246,8 +251,8 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                 child: Container(
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(15),
+                    color: originalOrangeAccentColor,
+                    borderRadius: BorderRadius.circular(30),
                   ),
                   child
                       //   : Obx(
@@ -260,8 +265,8 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                       //           strokeWidth: 3,
                       //         ),
                       //       )
-                      : Text(
-                    '+ Add to Cart',
+                      : const Text(
+                    'Add to Cart',
                     // style: GoogleFonts.poppins(
                     //   fontSize: 15,
                     //   fontWeight: FontWeight.w500,
