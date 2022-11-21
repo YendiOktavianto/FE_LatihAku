@@ -2,6 +2,7 @@
 import 'package:fe_latihaku/configurations/size_config.dart';
 import 'package:fe_latihaku/models/coach_modeltesting.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class CoachDetail extends StatefulWidget {
   final int index;
@@ -67,19 +68,18 @@ class _CoachDetailState extends State<CoachDetail> {
                     SizedBox(
                       height: getProportionateScreenHeight(5),
                     ),
-                    Container(
+                    SizedBox(
                       height: getProportionateScreenHeight(50),
                       width: width,
-                      child: ListView.builder(
-                        itemCount: menu[widget.index].rate,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, int key) {
-                          return Icon(
-                            Icons.star,
-                            color: Colors.yellow[900],
-                            size: 34,
-                          );
-                        },
+                      child: RatingBarIndicator(
+                        rating: rating[0],
+                        itemBuilder: (context, index) => const Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        itemCount: 5,
+                        itemSize: 25,
+                        //direction: Axis.vertical,
                       ),
                     ),
                     SizedBox(
