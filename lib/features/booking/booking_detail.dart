@@ -157,13 +157,10 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                       ],
                     ),
                     const SizedBox(height: 15),
-                    const Text(
+                    Text(
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor consectetur tortor vitae interdum.',
-                      // style: GoogleFonts.poppins(
-                      //   fontSize: 15,
-                      // ),
+                      style: ubuntuOrangeOriginalBookingDetail,
                     ),
-
                     const SizedBox(height: 20),
                   ],
                 ),

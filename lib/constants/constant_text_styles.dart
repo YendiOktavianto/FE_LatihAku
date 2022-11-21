@@ -196,3 +196,9 @@ final ubuntuOrangeOriginalForgotPassword = TextStyle(
     fontWeight: FontWeight.bold,
     color: originalOrangeColor,
     fontFamily: 'ubuntu');
+
+// Booking Detail Description
+final ubuntuOrangeOriginalBookingDetail = TextStyle(
+    fontSize: getProportionateScreenWidth(15),
+    color: originalOrangeColor,
+    fontFamily: 'ubuntu');
