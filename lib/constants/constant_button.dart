@@ -104,7 +104,7 @@ Widget FlatButtonApp(
 //   );
 // }
 
-Widget likeButton(bool isLiked,Function onTapX) {
+Widget likeButton(bool isLiked, Function onTapX) {
   double size = 40;
   return Container(
       width: 50,

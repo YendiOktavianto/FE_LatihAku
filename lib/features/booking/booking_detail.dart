@@ -163,56 +163,12 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                       //   fontSize: 15,
                       // ),
                     ),
-                    const SizedBox(height: 15),
-                    // Text(
-                    //   'Similar This',
-                    //   // style: GoogleFonts.poppins(
-                    //   //   fontSize: 16,
-                    //   //   fontWeight: FontWeight.w600,
-                    //   // ),
-                    // ),
-                    const SizedBox(height: 10),
-                    // SizedBox(
-                    //   height: 110,
-                    //   child: ListView.builder(
-                    //     scrollDirection: Axis.horizontal,
-                    //     itemCount: smProducts.length,
-                    //     itemBuilder: (context, index) => Container(
-                    //       margin: const EdgeInsets.only(right: 6),
-                    //       width: 110,
-                    //       height: 110,
-                    //       decoration: BoxDecoration(
-                    //         color: lightBlueColor,
-                    //         borderRadius: BorderRadius.circular(20),
-                    //       ),
-                    //       child: Center(
-                    //         child: Image(
-                    //           height: 70,
-                    //           image: AssetImage(smProducts[index].image),
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
+
                     const SizedBox(height: 20),
                   ],
                 ),
               ),
             ),
-            // Align(
-            //   alignment: Alignment.topCenter,
-            //   child: Container(
-            //     margin: const EdgeInsets.only(top: 10),
-            //     width: 50,
-            //     height: 5,
-            //     decoration: BoxDecoration(
-            //       color: greyColor,
-            //       borderRadius: BorderRadius.circular(50),
-            //     ),
-            //   ),
-            // ),
-            //   ],
-            // ),
           ),
         ],
       ),

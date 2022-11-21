@@ -1,5 +1,7 @@
 //@dart=2.9
 import 'package:fe_latihaku/configurations/size_config.dart';
+import 'package:fe_latihaku/constants/constant_colors.dart';
+import 'package:fe_latihaku/constants/constant_header.dart';
 import 'package:fe_latihaku/features/booking/booking_card.dart';
 import 'package:fe_latihaku/utils/search_bar.dart';
 import 'package:flutter/material.dart';
@@ -15,55 +17,12 @@ class _BookingState extends State<Booking> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Container(
-            // Here the height of the container is 45% of our total height
-            height: getProportionateScreenHeight(365.4),
-            decoration: const BoxDecoration(
-              color: Color(0xFFF5CEB8),
-              image: DecorationImage(
-                alignment: Alignment.centerLeft,
-                image: AssetImage("assets/undraw_pilates_gpdb.png"),
-              ),
-            ),
-          ),
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  // Align(
-                  //   alignment: Alignment.topRight,
-                  //   child: Container(
-                  //     alignment: Alignment.center,
-                  //     height: 52,
-                  //     width: 52,
-                  //     decoration: BoxDecoration(
-                  //       color: Color(0xFFF2BEA1),
-                  //       shape: BoxShape.circle,
-                  //     ),
-                  //     child: SvgPicture.asset("assets/icons/menu.svg"),
-                  //   ),
-                  // ),
-                  Text(
-                    "Good Morning \nShishir",
-                    style: Theme.of(context)
-                        .textTheme
-                        .displaySmall
-                        .copyWith(fontWeight: FontWeight.w900),
-                  ),
-                  const SearchBar(),
-                  const Expanded(
-                    child: BookingCard()
-                  ),
-                ],
-              ),
-            ),
-          )
+          appHeader("assets/undraw_pilates_gpdb.png",originalBlueColor),
+          appHeaderText("Good Morning \nShishir", false, const BookingCard(), 30)
+
         ],
       ),
     );

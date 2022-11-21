@@ -1,7 +1,12 @@
 import 'package:fe_latihaku/configurations/size_config.dart';
+import 'package:fe_latihaku/constants/constant_button.dart';
+import 'package:fe_latihaku/constants/constant_colors.dart';
+import 'package:fe_latihaku/constants/constant_text_styles.dart';
 import 'package:fe_latihaku/features/login_register/header_widget.dart';
 import 'package:fe_latihaku/features/login_register/theme_helper.dart';
 import 'package:fe_latihaku/profile/profile.dart';
+import 'package:fe_latihaku/utils/bottom_navbar.dart';
+import 'package:fe_latihaku/utils/routes.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:otp_text_field/otp_text_field.dart';
@@ -49,21 +54,15 @@ class _ForgotPasswordVerificationPageState
                           children: [
                             Text(
                               'Verification',
-                              style: TextStyle(
-                                  fontSize: getProportionateScreenWidth(35),
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black54),
+                              style: arvoDarkOrangeAccent,
                               // textAlign: TextAlign.center,
                             ),
                             SizedBox(
                               height: getProportionateScreenHeight(10),
                             ),
-                            const Text(
+                            Text(
                               'Enter the verification code we just sent you on your email address.',
-                              style: TextStyle(
-                                  // fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black54),
+                              style: ubuntuOrangeOriginalForgotPassword,
                               // textAlign: TextAlign.center,
                             ),
                           ],
@@ -92,11 +91,9 @@ class _ForgotPasswordVerificationPageState
                             Text.rich(
                               TextSpan(
                                 children: [
-                                  const TextSpan(
+                                  TextSpan(
                                     text: "If you didn't receive a code! ",
-                                    style: TextStyle(
-                                      color: Colors.black38,
-                                    ),
+                                    style: robotoCondensedDarkOrange,
                                   ),
                                   TextSpan(
                                     text: 'Resend',
@@ -112,9 +109,7 @@ class _ForgotPasswordVerificationPageState
                                           },
                                         );
                                       },
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.orange),
+                                    style: robotoCondensedDarkOrangeBold,
                                   ),
                                 ],
                               ),
@@ -125,31 +120,25 @@ class _ForgotPasswordVerificationPageState
                                   ? ThemeHelper().buttonBoxDecoration(context)
                                   : ThemeHelper().buttonBoxDecoration(
                                       context, "#AAAAAA", "#757575"),
-                              child: ElevatedButton(
-                                style: ThemeHelper().buttonStyle(),
-                                onPressed: _pinSuccess
-                                    ? () {
-                                        Navigator.of(context)
-                                            .pushAndRemoveUntil(
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        ProfilePage()),
-                                                (Route<dynamic> route) =>
-                                                    false);
-                                      }
-                                    : null,
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(40, 10, 40, 10),
-                                  child: Text(
-                                    "Verify".toUpperCase(),
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(20),
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                              child: SizedBox(
+                                width: getProportionateScreenWidth(150),
+                                height: getProportionateScreenHeight(50),
+                                child: ElevatedBtnApp(
+                                    shapex: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(25),
+                                      ),
                                     ),
-                                  ),
-                                ),
+                                    colorx: lightOrangeColor,
+                                    childx: Text(
+                                      "VERIFY",
+                                      style: robotoCondensedDarkOrangeButton,
+                                    ),
+                                    // ),
+                                    onPressedx: () {
+                                      changeScreen(context,
+                                          const BottomNavbar());
+                                    }),
                               ),
                             ),
                           ],

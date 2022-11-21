@@ -42,7 +42,7 @@ Widget formTextField(
           ),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(100.0),
           borderSide: BorderSide(
             color: enabledColor,
             width: 2.0,

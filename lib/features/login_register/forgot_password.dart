@@ -1,9 +1,13 @@
 import 'package:fe_latihaku/configurations/size_config.dart';
+import 'package:fe_latihaku/constants/constant_button.dart';
+import 'package:fe_latihaku/constants/constant_colors.dart';
+import 'package:fe_latihaku/constants/constant_text_form.dart';
 import 'package:fe_latihaku/constants/constant_text_styles.dart';
 import 'package:fe_latihaku/features/login_register/forgot_password_verification.dart';
 import 'package:fe_latihaku/features/login_register/header_widget.dart';
 import 'package:fe_latihaku/features/login_register/login.dart';
 import 'package:fe_latihaku/features/login_register/theme_helper.dart';
+import 'package:fe_latihaku/utils/routes.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -50,25 +54,17 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                             SizedBox(
                               height: getProportionateScreenHeight(10),
                             ),
-                            const Text(
-                              'Enter the email address associated with your account.',
-                              style: TextStyle(
-                                  // fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black54),
-                              // textAlign: TextAlign.center,
-                            ),
+                            Text(
+                                'Enter the email address associated with your account.',
+                                style: ubuntuOrangeOriginalForgotPassword),
                             SizedBox(
                               height: getProportionateScreenHeight(10),
                             ),
                             Text(
-                              'We will email you a verification code to check your authenticity.',
-                              style: TextStyle(
-                                color: Colors.black38,
-                                // fontSize: 20,
-                              ),
-                              // textAlign: TextAlign.center,
-                            ),
+                                'We will email you a verification code to check your authenticity.',
+                                style: ubuntuOrangeOriginalForgotPassword
+                                // textAlign: TextAlign.center,
+                                ),
                           ],
                         ),
                       ),
@@ -78,11 +74,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         child: Column(
                           children: <Widget>[
                             Container(
-                              child: TextFormField(
-                                decoration: ThemeHelper().textInputDecoration(
-                                    "Email", "Enter your email"),
-                                validator: (val) {
-                                  if (val!.isEmpty) {
+                              decoration:
+                                  ThemeHelper().inputBoxDecorationShaddow(),
+                              child: formTextField(
+                                validatorForm: (val) {
+                                  if (val.isNotEmpty) {
                                     return "Email can't be empty";
                                   } else if (!RegExp(
                                           r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
@@ -91,46 +87,44 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                   }
                                   return null;
                                 },
+                                prefix: const Icon(Icons.email_sharp,
+                                    color: darkOrangeColor),
+                                textType: TextInputType.name,
+                                textLabel: "Email",
+                                textHint: "Enter your Email",
+                                labelStyleForm: robotoCondensedDarkOrangeForm,
+                                focusedColor: darkOrangeColor,
+                                enabledColor: darkOrangeColor,
                               ),
-                              decoration:
-                                  ThemeHelper().inputBoxDecorationShaddow(),
                             ),
                             SizedBox(height: getProportionateScreenHeight(40)),
-                            Container(
-                              decoration:
-                                  ThemeHelper().buttonBoxDecoration(context),
-                              child: ElevatedButton(
-                                style: ThemeHelper().buttonStyle(),
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(40, 10, 40, 10),
-                                  child: Text(
-                                    "Send".toUpperCase(),
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(20),
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                            SizedBox(
+                              width: getProportionateScreenWidth(100),
+                              height: getProportionateScreenHeight(50),
+                              child: ElevatedBtnApp(
+                                  shapex: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(25),
                                     ),
                                   ),
-                                ),
-                                onPressed: () {
-                                  if (_formKey.currentState!.validate()) {
-                                    Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              ForgotPasswordVerificationPage()),
-                                    );
-                                  }
-                                },
-                              ),
+                                  colorx: lightOrangeColor,
+                                  childx: Text(
+                                    "SEND",
+                                    style: robotoCondensedDarkOrangeButton,
+                                  ),
+                                  // ),
+                                  onPressedx: () {
+                                    changeScreen(context,
+                                        const ForgotPasswordVerificationPage());
+                                  }),
                             ),
                             SizedBox(height: getProportionateScreenHeight(30)),
                             Text.rich(
                               TextSpan(
                                 children: [
-                                  const TextSpan(
-                                      text: "Remember your password? "),
+                                  TextSpan(
+                                      text: "Remember your password? ",
+                                      style: robotoCondensedDarkOrange),
                                   TextSpan(
                                     text: 'Login',
                                     recognizer: TapGestureRecognizer()
@@ -139,11 +133,10 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  LoginPage()),
+                                                  const LoginPage()),
                                         );
                                       },
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
+                                    style: robotoCondensedDarkOrangeBold,
                                   ),
                                 ],
                               ),
