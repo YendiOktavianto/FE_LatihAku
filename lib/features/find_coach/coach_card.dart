@@ -1,17 +1,30 @@
 //@dart=2.9
 import 'package:fe_latihaku/configurations/size_config.dart';
+import 'package:fe_latihaku/constants/constant_button.dart';
 import 'package:fe_latihaku/features/find_coach/coach_detail.dart';
 import 'package:fe_latihaku/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
 
 class CoachCard extends StatelessWidget {
   final List<String> images;
   final List<String> title;
   final List<double> rating;
 
+  set isLiked(bool isLiked) {
+    isLiked = false;
+  }
+
+  Future<bool> onTapX(isLiked) async {
+    this.isLiked = !isLiked;
+    return !isLiked;
+  }
+
   const CoachCard({Key key, this.images, this.title, this.rating})
       : super(key: key);
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +66,7 @@ class CoachCard extends StatelessWidget {
                     itemSize: 15,
                     //direction: Axis.vertical,
                   ),
+                  trailing: likeButtonStateless(onTapX),
                 ),
               ),
             );

@@ -129,3 +129,27 @@ Widget likeButton(bool isLiked, Function onTapX) {
         onTap: onTapX,
       ));
 }
+
+Widget likeButtonStateless(Function onTapX) {
+  double size = 40;
+  bool isLiked = false;
+
+  return Container(
+      width: 50,
+      height: 50,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: greyColor),
+      ),
+      child: LikeButton(
+        size: 40,
+        isLiked: isLiked,
+        likeBuilder: (isLiked) {
+          final color = isLiked ? darkOrangeAccentColor : lightBrownColor;
+
+          return Icon(Icons.favorite, color: color, size: size);
+        },
+        onTap: onTapX
+      ));
+}
