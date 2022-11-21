@@ -1,4 +1,5 @@
 import 'package:fe_latihaku/configurations/size_config.dart';
+import 'package:fe_latihaku/constants/constant_text_styles.dart';
 import 'package:fe_latihaku/features/login_register/forgot_password_verification.dart';
 import 'package:fe_latihaku/features/login_register/header_widget.dart';
 import 'package:fe_latihaku/features/login_register/login.dart';
@@ -18,7 +19,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
@@ -26,40 +26,43 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             children: [
               Container(
                 height: getProportionateScreenHeight(300),
-                child: HeaderWidget(getProportionateScreenHeight(300), true, Icons.password_rounded),
+                child: HeaderWidget(getProportionateScreenHeight(300), true,
+                    Icons.password_rounded),
               ),
               SafeArea(
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(25, 10, 25, 10),
-                  padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  margin: const EdgeInsets.fromLTRB(25, 10, 25, 10),
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   child: Column(
                     children: [
                       Container(
                         alignment: Alignment.topLeft,
-                        margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Forgot Password?',
-                              style: TextStyle(
-                                  fontSize: getProportionateScreenWidth(35),
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black54
-                              ),
+                            Text(
+                              'Forgot Password?',
+                              style: arvoDarkOrangeAccent,
                               // textAlign: TextAlign.center,
                             ),
-                            SizedBox(height: getProportionateScreenHeight(10),),
-                            Text('Enter the email address associated with your account.',
+                            SizedBox(
+                              height: getProportionateScreenHeight(10),
+                            ),
+                            const Text(
+                              'Enter the email address associated with your account.',
                               style: TextStyle(
-                                // fontSize: 20,
+                                  // fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black54
-                              ),
+                                  color: Colors.black54),
                               // textAlign: TextAlign.center,
                             ),
-                            SizedBox(height: getProportionateScreenHeight(10),),
-                            Text('We will email you a verification code to check your authenticity.',
+                            SizedBox(
+                              height: getProportionateScreenHeight(10),
+                            ),
+                            Text(
+                              'We will email you a verification code to check your authenticity.',
                               style: TextStyle(
                                 color: Colors.black38,
                                 // fontSize: 20,
@@ -76,27 +79,31 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           children: <Widget>[
                             Container(
                               child: TextFormField(
-                                decoration: ThemeHelper().textInputDecoration("Email", "Enter your email"),
-                                validator: (val){
-                                  if(val!.isEmpty){
+                                decoration: ThemeHelper().textInputDecoration(
+                                    "Email", "Enter your email"),
+                                validator: (val) {
+                                  if (val!.isEmpty) {
                                     return "Email can't be empty";
-                                  }
-                                  else if(!RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$").hasMatch(val)){
+                                  } else if (!RegExp(
+                                          r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
+                                      .hasMatch(val)) {
                                     return "Enter a valid email address";
                                   }
                                   return null;
                                 },
                               ),
-                              decoration: ThemeHelper().inputBoxDecorationShaddow(),
+                              decoration:
+                                  ThemeHelper().inputBoxDecorationShaddow(),
                             ),
                             SizedBox(height: getProportionateScreenHeight(40)),
                             Container(
-                              decoration: ThemeHelper().buttonBoxDecoration(context),
+                              decoration:
+                                  ThemeHelper().buttonBoxDecoration(context),
                               child: ElevatedButton(
                                 style: ThemeHelper().buttonStyle(),
                                 child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                      40, 10, 40, 10),
+                                  padding:
+                                      const EdgeInsets.fromLTRB(40, 10, 40, 10),
                                   child: Text(
                                     "Send".toUpperCase(),
                                     style: TextStyle(
@@ -107,11 +114,12 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  if(_formKey.currentState!.validate()) {
+                                  if (_formKey.currentState!.validate()) {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => ForgotPasswordVerificationPage()),
+                                          builder: (context) =>
+                                              ForgotPasswordVerificationPage()),
                                     );
                                   }
                                 },
@@ -121,19 +129,21 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                             Text.rich(
                               TextSpan(
                                 children: [
-                                  const TextSpan(text: "Remember your password? "),
+                                  const TextSpan(
+                                      text: "Remember your password? "),
                                   TextSpan(
                                     text: 'Login',
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {
                                         Navigator.push(
                                           context,
-                                          MaterialPageRoute(builder: (context) => LoginPage()),
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  LoginPage()),
                                         );
                                       },
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold
-                                    ),
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               ),
@@ -147,7 +157,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
               )
             ],
           ),
-        )
-    );
+        ));
   }
 }

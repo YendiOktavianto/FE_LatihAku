@@ -29,20 +29,20 @@ class _ForgotPasswordVerificationPageState
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 height: getProportionateScreenHeight(300),
                 child: HeaderWidget(getProportionateScreenHeight(300), true,
                     Icons.privacy_tip_outlined),
               ),
               SafeArea(
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(25, 10, 25, 10),
-                  padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  margin: const EdgeInsets.fromLTRB(25, 10, 25, 10),
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   child: Column(
                     children: [
                       Container(
                         alignment: Alignment.topLeft,
-                        margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +58,7 @@ class _ForgotPasswordVerificationPageState
                             SizedBox(
                               height: getProportionateScreenHeight(10),
                             ),
-                            Text(
+                            const Text(
                               'Enter the verification code we just sent you on your email address.',
                               style: TextStyle(
                                   // fontSize: 20,
@@ -92,7 +92,7 @@ class _ForgotPasswordVerificationPageState
                             Text.rich(
                               TextSpan(
                                 children: [
-                                  TextSpan(
+                                  const TextSpan(
                                     text: "If you didn't receive a code! ",
                                     style: TextStyle(
                                       color: Colors.black38,
@@ -112,7 +112,7 @@ class _ForgotPasswordVerificationPageState
                                           },
                                         );
                                       },
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.orange),
                                   ),
@@ -127,6 +127,17 @@ class _ForgotPasswordVerificationPageState
                                       context, "#AAAAAA", "#757575"),
                               child: ElevatedButton(
                                 style: ThemeHelper().buttonStyle(),
+                                onPressed: _pinSuccess
+                                    ? () {
+                                        Navigator.of(context)
+                                            .pushAndRemoveUntil(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        ProfilePage()),
+                                                (Route<dynamic> route) =>
+                                                    false);
+                                      }
+                                    : null,
                                 child: Padding(
                                   padding:
                                       const EdgeInsets.fromLTRB(40, 10, 40, 10),
@@ -139,17 +150,6 @@ class _ForgotPasswordVerificationPageState
                                     ),
                                   ),
                                 ),
-                                onPressed: _pinSuccess
-                                    ? () {
-                                        Navigator.of(context)
-                                            .pushAndRemoveUntil(
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        ProfilePage()),
-                                                (Route<dynamic> route) =>
-                                                    false);
-                                      }
-                                    : null,
                               ),
                             ),
                           ],
